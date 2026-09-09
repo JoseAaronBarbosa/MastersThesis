@@ -8,16 +8,47 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fa557b91bfed0505",
+            "id": "e125a79a644628f7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "pdf",
+              "state": {
+                "file": "Files/Principal/ThesisProposal.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "ThesisProposal"
+            }
+          },
+          {
+            "id": "cc53885cc0767e18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research/Passivity/Introduction to passivity based control.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Introduction to passivity based control"
+            }
+          },
+          {
+            "id": "36e50f06daf4c285",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research/Passivity/Introduction to passivity based control.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduction to passivity based control"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -79,7 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "b86f0c7927a5b492",
@@ -95,6 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Research/Passivity/Introduction to passivity based control.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Research/Passivity/Introduction to passivity based control.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,6 +188,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Research/Passivity/Introduction to passivity based control.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -178,11 +212,27 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "color-math:Color Math": false
     }
   },
-  "active": "fa557b91bfed0505",
+  "active": "36e50f06daf4c285",
   "lastOpenFiles": [
+    "Sections/PBC/Passivity Based Controller Formulation.md",
+    "Files/Courses/PDWithNeuralCompensation.pdf",
+    "Files/Principal/ThesisProposal.pdf",
+    "Research/Passivity/Introduction to passivity based control.md",
+    "References/References.md",
+    "Sections/PBC",
+    "Sections",
+    "Templates/Insert Date.md",
+    "Templates/Insert multiline equation.md",
+    "Research/Passivity",
+    "Research",
+    "Files/Articles/FuzzyIdentification_StableNeuralAlgorithms.pdf",
+    "Files/Articles/TwoStageNeuralObserver.pdf",
+    "Files/Articles/NeuralPIDControl_Exosqueleton.pdf",
+    "Files/Courses",
     "Welcome.md"
   ]
 }

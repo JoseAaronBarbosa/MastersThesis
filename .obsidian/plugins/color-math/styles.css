@@ -1,0 +1,16 @@
+/* styles.css */
+
+.color-math-live-token {
+  transition: color 0.15s ease-in-out;
+}
+
+.color-math-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: var(--background-secondary);
+}
