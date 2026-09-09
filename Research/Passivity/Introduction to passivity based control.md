@@ -5,7 +5,7 @@
 [Reference](https://arxiv.org/pdf/2608.15222)
 # Introduction
 
-The controller is an energy-transforming and dissipating device that, once interconnected to the plant, ensures that the dissipation and energy of the overall system have a desired shape. The energy-based perspective has the advantage over the traditional signal-processing viewpoint that, the typically nonlinear physical phenomena can be accounted for in the control design process, giving the resulting controller a physical interpretation. Also, this perspective does not rely on canceling nonlinearities, making them more robust and energy-efficient.
+The controller is an energy-transforming and dissipating device that, once interconnected to the plant, ensures that the dissipation and energy of the overall system have a desired shape. The energy-based perspective has the advantage over the traditional signal-processing viewpoint that, the typically nonlinear physical phenomena can be accounted for in the control design process, giving the resulting controller a physical interpretation. Also, this perspective does not rely on canceling non-linearities, making them more robust and energy-efficient.
 
 # Passivity and Passive Systems
 
