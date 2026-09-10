@@ -37,4 +37,10 @@ $$\begin{align}
 \end{align}$$
 The cancellation was due to the skew-symmetry property of $\dot{M}(q)-2C(q,\dot{q})$. Since $K_{D}$ is positive definite:
 $$\dot{V}(s)\leq-s^{T}\tilde{\Delta}$$
-Which is the passivity property. Then we can say that the mapping $\tilde{\Delta}\to s$ is passive and the passivity index is $K_{D}$.
+Which is the passivity property. Then we can say that the mapping $-\tilde{\Delta}\to s$ is passive. Moreover from:
+$$\dot{V}(s)=-s^{T}K_{D}s-s^{T}\tilde{\Delta}$$
+We can bound the right side:
+$$\begin{align}
+\dot{V}(s)\leq s^T(-\tilde{\Delta})-s^T(\lambda_{min}(K_{D})s)
+\end{align}$$
+Since $\lambda_{min}(K_{D})s>0$ for all $s\neq0$ , then the mapping $-\tilde{\Delta}\to s$ is output strictly passive, with passivity index $K_D$.
