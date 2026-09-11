@@ -2,7 +2,7 @@
 
 #Passivity 
 
-[[ThesisProposal.pdf]]
+[[Thesis Proposal V2.pdf]]
 
 The control action is given by:
 $$\tau =\hat{M}(q)\ddot{q}_{r}+\hat{C}(q,\dot{q})\dot{q}_{r}+\hat{g}(q)-K_{d}s+\hat{\Delta}$$
