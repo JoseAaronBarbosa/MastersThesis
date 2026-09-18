@@ -44,4 +44,4 @@ Where the coefficients are of static friction $\tau_{C_{v}}$, viscous friction $
 It is important to note that the frictional force is already a function of the generalized coordinates and therefore can enter the model as it is.
 $$M(q)\ddot{q}+C(q,\dot{q})+\frac{\partial U}{\partial q}+\tau_{{f_{i}}}=\sum_{i}\tau_{i}$$
 Using this friction model we can just learn the friction coefficients by treating them as network weights.
-We can also note that this modeling ensure the fulfillment of the property $\dot{q}^{T}F(\dot{q})\geq 0$.
+We can also note that this modeling ensures the fulfillment of the property $\dot{q}^{T}F(\dot{q})\geq 0$.

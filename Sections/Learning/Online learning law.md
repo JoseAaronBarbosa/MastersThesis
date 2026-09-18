@@ -16,16 +16,34 @@ $$\dot{V}_{l}=-s^{T}K_{D}s-s^{T}\tilde{W}\phi(\theta)-s^T\epsilon+\mbox{tr}\{\ti
 Since each term is a scalar, it is equal to its trace, and it is invariant under cyclic permutations if the product is defines, so $s^{T}\tilde{W}\phi(\theta)=\mbox{tr}\{s^{T}\tilde{W}\phi(\theta)\}=\mbox{tr}\{\tilde{W}^{T}s\phi^{T}(\theta)\}$ which allows us to put this term inside the trace:
 $$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]+\mbox{tr}\{\tilde{W}^Ts\phi^T(\theta)+\tilde{W}^TK_{\omega}^{-1}\dot{\tilde{W}}\}$$
 $$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]+\mbox{tr}\{\tilde{W}^T[s\phi^T(\theta)+K_{\omega}^{-1}\dot{\tilde{W}}]\}$$
-Finally we can pick an adaptation law for the output layer such tat the trace term cancels, that is:
-$$\dot{\tilde{W}}=-K_{\omega}s\phi^T(\theta)$$
+Finally we can pick an adaptation law for the output layer such that the trace term cancels, that is:
+$$\dot{\tilde{W}}=\dot{\hat{W}}=-K_{\omega}s\phi^T(\theta)$$
 From which we get:
 $$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]$$
 If we had no robust action then we could arrive at a ISS argument if the $\epsilon$ remains bounded. But for the robust action we need an extended Lyapunov learning law that combines the second order dynamics of the robust action.
 
-## Composite Lyapunov candidate
+## Robust modification
 
-Now consider the Lyapunov candidate function:
-$$V(s,v,\tilde{W})=\frac{1}{2}s^{T}M(q)s+\sum_{i=1}^n\zeta_{i}^TP_{i}\zeta_{i}+\frac{1}{2}\mbox{tr}\{\tilde{W}^TK_{\omega}^{-1}\tilde{W}\}$$
-Where $\zeta_i=[\begin{array}{cc}\sqrt{|s|}\mbox{sign}(s),v_{i}\end{array}]^T$. Taking the derivative gives much of the same terms as last time:
+For the rest of the system we need a certification on the boundedness of the weights. The robust modification to the learning law will provide this and also prevent parameter drift.
+Consider the modified adaptation law:
+$$\dot{\hat{W}}=-K_{\omega}[s\phi^T(\theta)+\kappa||s||\hat{W}]$$
+With $\kappa>0$. Then the Lyapunov derivative gives:
+$$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]+\mbox{tr}\{\tilde{W}^T[s\phi^T(\theta)-s\phi^T(\theta)-\kappa||s||\hat{W}]\}$$
+$$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]-\kappa||s||\mbox{tr}\{\tilde{W}^T\hat{W}\}$$
+Remembering that $\tilde{W}=W^*-\hat{W}$:
+$$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]-\kappa||s||\mbox{tr}\{W^{*^T}\hat{W}-\hat{W}^T\hat{W}\}$$
+The Frobenius inner product can be applied to the traces of the matrix multiplication:
+$$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]-\kappa||s||\left(\langle W^{*},\hat{W}\rangle_{F}-\langle \hat{W},\hat{W}\rangle_{F}\right)$$
+And applying Cauchy-Schwartz:
+$$\dot{V}_{l}\leq-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]-\kappa||s||\left(||W^*||_{F}||\hat{W}||_{F}-||\hat{W}||_{F}^2\right)$$
+We can complete the square of the term inside the brackets:
+$$\left(||W^*||_{F}||\hat{W}||_{F}-||\hat{W}||_{F}^2\right)=-\left(||\hat{W}||_{F}-\frac{1}{2}||W^*||_{F}\right)^2+\frac{1}{4}||W^*||_{F}^2\leq\frac{1}{4}||W^*||_{F}^2$$
+Going back to out Lyapunov function:
+$$\dot{V}_{l}\leq-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]+\frac{\kappa}{4}||W^*||_{F}^2||s||$$
+We can now bound the quadratic term with the Rayleigh-Ritz inequality:
+$$\dot{V}_{l}\leq-\lambda_{min}(K_{D})||s||^2+s^T[\tau_{sta}-\epsilon]+\frac{\kappa}{4}||W^*||_{F}^2||s||$$
+$$\dot{V}_{l}\leq-\left(\lambda_{min}(K_{D})||s||-\frac{\kappa}{4}||W^*||_{F}^2\right)||s||+s^T[\tau_{sta}-\epsilon]$$
+Which gives us a UUB type conclusion.
+
 
 
