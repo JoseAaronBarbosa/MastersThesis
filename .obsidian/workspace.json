@@ -22,6 +22,18 @@
             }
           },
           {
+            "id": "740e92e32bde2bea",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Files/Principal/plan_first_term.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "plan_first_term"
+            }
+          },
+          {
             "id": "fdd0f80ae6ac3129",
             "type": "leaf",
             "state": {
@@ -33,7 +45,8 @@
               "title": "Thesis Proposal V2"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -200,18 +213,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "4fe6adf6b46570dc",
+  "active": "e1042c03e44795a3",
   "lastOpenFiles": [
     "Files/Principal/Thesis Proposal V2.pdf",
+    "Files/Principal/plan_first_term.pdf",
     "Sections/Learning/Online learning law.md",
     "Sections/STA/Composite Lyapunov function.md",
-    "Sections/STA",
+    "Research/Sliding modes/Solutions in the Filippov sense.md",
     "Sections/PBC/Passivity Based Controller Formulation.md",
     "Research/Structured learning/Deep Lagrangian Networks.md",
+    "Sections/STA",
     "Research/Passivity/Introduction to passivity based control.md",
     "Research/Sliding modes/Sliding surface on an E-L system.md",
     "Sections/Learning",
-    "Files/Principal/plan_first_term.pdf",
     "Files/Articles/NeuralPIDControl_Exosqueleton.pdf",
     "Deep Lagrangian Networks.md",
     "Files/Articles/TwoStageNeuralObserver.pdf",
