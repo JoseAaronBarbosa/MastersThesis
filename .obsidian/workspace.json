@@ -34,6 +34,20 @@
             }
           },
           {
+            "id": "95175ab70defe119",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sections/PBC/Passivity Based Controller Formulation.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Passivity Based Controller Formulation"
+            }
+          },
+          {
             "id": "fdd0f80ae6ac3129",
             "type": "leaf",
             "state": {
@@ -46,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -213,10 +227,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "e1042c03e44795a3",
+  "active": "95175ab70defe119",
   "lastOpenFiles": [
-    "Files/Principal/Thesis Proposal V2.pdf",
+    "Sections/PBC/Nominal dynamics.md",
     "Files/Principal/plan_first_term.pdf",
+    "Files/Principal/Thesis Proposal V2.pdf",
     "Sections/Learning/Online learning law.md",
     "Sections/STA/Composite Lyapunov function.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
