@@ -60,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -227,15 +227,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "95175ab70defe119",
+  "active": "fdd0f80ae6ac3129",
   "lastOpenFiles": [
-    "Sections/PBC/Nominal dynamics.md",
+    "Scripts/Nominal_dynamics.m",
+    "Scripts",
+    "New folder",
+    "Sections/PBC/Passivity Based Controller Formulation.md",
     "Files/Principal/plan_first_term.pdf",
+    "Sections/PBC/Nominal dynamics.md",
     "Files/Principal/Thesis Proposal V2.pdf",
     "Sections/Learning/Online learning law.md",
     "Sections/STA/Composite Lyapunov function.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
-    "Sections/PBC/Passivity Based Controller Formulation.md",
     "Research/Structured learning/Deep Lagrangian Networks.md",
     "Sections/STA",
     "Research/Passivity/Introduction to passivity based control.md",
@@ -247,8 +250,6 @@
     "Files/Courses/PDWithNeuralCompensation.pdf",
     "Files/Principal/ThesisProposal.pdf",
     "Structured learning model.md",
-    "Research/Structured learning",
-    "Research/Sliding modes",
     "References/References.md",
     "Templates/Insert Date.md",
     "Templates/Insert multiline equation.md",
