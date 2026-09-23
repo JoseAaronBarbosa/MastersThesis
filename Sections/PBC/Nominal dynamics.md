@@ -46,9 +46,9 @@ s_{12} & c_{12} & 0 & s_{12}l_{2}+s_{1}l_{1} \\
 0 & 0 & 0 & 1
 \end{array}\right)
 $$
-## Jacobians
+## Jacobian
 
-Now we can obtain the Jacobians at each center of mass for the links:
+Now we can obtain the Jacobian at each center of mass for the links:
 $$
 J_{v,c_{1}}=\left(\begin{array}{cc}
 z_{0}\times(o_{c_{1}}-o_{0}) & 0
@@ -174,7 +174,7 @@ $$
 $$
 c_{ijk}=\frac{1}{2}\left(\frac{ \partial M_{kj} }{ \partial q_{i} }+\frac{ \partial M_{ki} }{ \partial q_{j} }-\frac{ \partial M_{ij} }{ \partial q_{k} }   \right)
 $$
-It is important to note that only ${}q_{2}{}$ appears in the inertia matrix so a lot of partial derivatives disappear. Also, the term ${}M_{22}{}$ has no dependance on the angle so it also disappears.
+It is important to note that only ${}q_{2}{}$ appears in the inertia matrix so a lot of partial derivatives disappear. Also, the term ${}M_{22}{}$ has no dependence on the angle so it also disappears.
 $$
 C_{11}=c_{111}\dot{q}_{1}+c_{211}\dot{q}_{2}=-m_{2}l_{1}l_{c_{2}}s_{2}\dot{q}_{2}
 $$
