@@ -2,7 +2,7 @@
 
 #DeLaN
 
-[Reference](https://drive.google.com/file/d/1Qe_jE0gJ9nfRwxg3FxhKLtH0wlNdNL0f/view?usp=drive_link)
+[Reference]([https://drive.google.com/file/d/1Qe_jE0gJ9nfRwxg3FxhKLtH0wlNdNL0f/view?usp=drive_link](https://drive.google.com/file/d/1WqKZJCDLoiV_n9bRT29UD3w1PLu7RuQN/view?usp=sharing))
 
 ## Model of the system
 
@@ -43,5 +43,5 @@ $$\tau_{f_{i}}=-\left( \tau_{C_{v}}+\tau_{C_{s}}\mbox{exp}\left( -\frac{\dot{q}_
 Where the coefficients are of static friction $\tau_{C_{v}}$, viscous friction $d$, and Stribeck friction $\tau_{C_{v}},v$. 
 It is important to note that the frictional force is already a function of the generalized coordinates and therefore can enter the model as it is.
 $$M(q)\ddot{q}+C(q,\dot{q})+\frac{\partial U}{\partial q}+\tau_{{f_{i}}}=\sum_{i}\tau_{i}$$
-Using this friction model we can just learn the friction coefficients by treating them as network weights.
-We can also note that this modeling ensures the fulfillment of the property $\dot{q}^{T}F(\dot{q})\geq 0$.
+The parameters can't just be learned using regular adaptive control since the function is not linear in the parameters. So a network is needed to capture the Stribeck type nonlinearity. 
+Using monotone activation functions and non-negative weights for the network we can ensure the fulfillment of the property $\dot{q}^{T}F(\dot{q})\dot{q}\geq 0$.
