@@ -22,6 +22,54 @@ From which we get:
 $$\dot{V}_{l}=-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]$$
 If we had no robust action then we could arrive at a ISS argument if the $\epsilon$ remains bounded. But for the robust action we need an extended Lyapunov learning law that combines the second order dynamics of the robust action.
 
+## Passivity of the learning module
+
+Without the robust control, the storage function becomes:
+$$
+\dot{V}_{l}=-s^TK_{D}s-s^T\epsilon
+$$
+Defining the input as ${}u=-\epsilon{}$ and the output as ${}s{}$ then:
+$$
+\dot{V}_{l}=u^Ty-y^TK_{D}y\leq u^Ty-\lambda_{min}(K_{D})||y||^2
+$$
+Which states that the mapping ${}-\epsilon\to s{}$ is output strictly passive with dissipation rate ${}\rho=\lambda_{min}(K_{D}){}$.
+Using Youngs inequality:
+$$
+u^Ty\leq \frac{1}{2\rho}||u||^2+\frac{\rho}{2}||y||^{2}
+$$
+and substituting into the storage function derivative:
+$$
+\dot{V}_{l}\leq\frac{1}{2\rho}||u||^2+\frac{\rho}{2}||y||^{2}-\rho||y||^{2}
+$$
+
+$$
+\dot{V}_{l}\leq\frac{1}{2\rho}||u||^2-\frac{\rho}{2}||y||^{2}
+$$
+Integrating from $0$ to ${}T{}$ gives:
+$$
+V_{l}(T)-V_{l}(0)\leq \frac{1}{2\rho}\int_{0}^T||u(t)||^2dt-\frac{\rho}{2}\int_{0}^T||y||^{2}dt
+$$
+$$
+V_{l}(T)+\frac{\rho}{2}\int_{0}^T||y||^{2}dt\leq V_{l}(0)+\frac{1}{2\rho}\int_{0}^T||u(t)||^2d
+$$
+Since ${}V_{l}{}$ is strictly positive, we can lower bound the inequality dropping this term:
+$$
+\frac{\rho}{2}\int_{0}^T||y||^{2}dt\leq V_{l}(T)+\frac{2}{\rho}\int_{0}^T||y||^{2}dt\leq V_{l}(0)+\frac{1}{2\rho}\int_{0}^T||u(t)||^2d
+$$
+$$
+\int_{0}^T||y||^{2}dt\leq \frac{2}{\rho}V_{l}(0)+\frac{1}{\rho^{2}}\int_{0}^T||u(t)||^2d
+$$
+Truncating the ${}\mathcal{L}_{2}{}$ norms for now and setting the limit:
+$$
+\lim_{T\to\infty}||y||_{2,T}^{2}\leq\frac{2}{\rho}V_{l}(0)+\frac{1}{\rho^{2}}\lim_{T\to\infty}||u||_{2,T}^{2}
+$$
+Using the inequality ${}\sqrt{a+b}\leq\sqrt{a}+\sqrt{b}{}$ when both are non-negative:
+$$
+\lim_{T\to\infty}||y||_{2,T}\leq\sqrt{\frac{2}{\rho}V_{l}(0)}+\frac{1}{\rho}\lim_{T\to\infty}||u||_{2,T}
+$$
+Assuming that ${}\epsilon\in\mathcal{L}_{2}{}$ , we can see that the ${}\mathcal{L}_{2}{}$ gain of the error ${}s{}$ is bounded by the initial conditions and the ${}\mathcal{L}_{2}{}$ gain of the input $-\epsilon$. 
+It is to say that bad learning degrades the performance but does due to passivity it does not compromise the stability.
+
 ## Robust modification
 
 For the rest of the system we need a certification on the boundedness of the weights. The robust modification to the learning law will provide this and also prevent parameter drift.
@@ -43,7 +91,9 @@ $$\dot{V}_{l}\leq-s^{T}K_{D}s+s^T[\tau_{sta}-\epsilon]+\frac{\kappa}{4}||W^*||_{
 We can now bound the quadratic term with the Rayleigh-Ritz inequality:
 $$\dot{V}_{l}\leq-\lambda_{min}(K_{D})||s||^2+s^T[\tau_{sta}-\epsilon]+\frac{\kappa}{4}||W^*||_{F}^2||s||$$
 $$\dot{V}_{l}\leq-\left(\lambda_{min}(K_{D})||s||-\frac{\kappa}{4}||W^*||_{F}^2\right)||s||+s^T[\tau_{sta}-\epsilon]$$
-Which gives us a UUB type conclusion.
 
+## Passivity of the robust modification
 
-
+Once again, setting the robust action to zero and defining the input and output as before:
+$$\dot{V}_{l}\leq u^Ty-\rho||y||^{2}+\frac{\kappa}{4}||W^*||^{2}_{F}||y$$
+We see that the extra term is linear in ${}y{}$ not quadratic. So this is not output strictly passive.

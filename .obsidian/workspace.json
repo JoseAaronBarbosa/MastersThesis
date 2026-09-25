@@ -8,35 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fdd0f80ae6ac3129",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Research/Structured learning/Deep Lagrangian Networks.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Deep Lagrangian Networks"
-            }
-          },
-          {
-            "id": "3f3189ef13ae4c7b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sections/Learning/Gaining span on the parametrization.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Gaining span on the parametrization"
-            }
-          },
-          {
             "id": "05a94e394f379bb7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Planning.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Planning"
+            }
+          },
+          {
+            "id": "30ef143aa9bd5368",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -47,8 +33,7 @@
               "title": "Thesis Proposal V2"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -215,25 +200,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "e1042c03e44795a3",
+  "active": "05a94e394f379bb7",
   "lastOpenFiles": [
-    "Research/Structured learning/Deep Lagrangian Networks.md",
-    "Sections/Learning/Gaining span on the parametrization.md",
-    "Sections/PBC/Passivity Based Controller Formulation.md",
-    "Sections/Learning/Online learning law.md",
-    "References/References.md",
-    "Sections/STA/Composite Lyapunov function.md",
     "Files/Principal/Thesis Proposal V2.pdf",
+    "Planning.md",
+    "Sections/Learning/Online learning law.md",
+    "Sections/PBC/Passivity Based Controller Formulation.md",
+    "Research/Passivity/Introduction to passivity based control.md",
+    "Research/Sliding modes/Sliding surface on an E-L system.md",
+    "Research/Sliding modes/Solutions in the Filippov sense.md",
+    "Research/Structured learning/Deep Lagrangian Networks.md",
+    "Sections/STA/Composite Lyapunov function.md",
+    "Sections/PBC/Nominal dynamics.md",
+    "Sections/Learning/Gaining span on the parametrization.md",
+    "References/References.md",
     "Files/Principal/plan_first_term.pdf",
     "Scripts/Nominal_dynamics.m.crdownload",
-    "Research/Passivity/Introduction to passivity based control.md",
-    "Sections/PBC/Nominal dynamics.md",
     "Scripts/Nominal_dynamics.m",
     "Scripts",
     "New folder",
-    "Research/Sliding modes/Solutions in the Filippov sense.md",
     "Sections/STA",
-    "Research/Sliding modes/Sliding surface on an E-L system.md",
     "Sections/Learning",
     "Files/Articles/NeuralPIDControl_Exosqueleton.pdf",
     "Deep Lagrangian Networks.md",
