@@ -1,6 +1,8 @@
 
 **Things to research**
 
+- [ ] Passivity based control methods (1989)
+- [ ] Byrnes1991
 - [ ] Output-strictly passive outside a ball
 - [ ] Conic combination
 - [ ] Rank-one outer products of fixed directions
