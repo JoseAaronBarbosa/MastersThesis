@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4c95d96c5211abf0",
+        "id": "856eed25ab8b8a86",
         "type": "tabs",
         "children": [
           {
-            "id": "05a94e394f379bb7",
+            "id": "ecf129456952275c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,36 +19,9 @@
               },
               "icon": "lucide-file",
               "title": "Planning"
-            }
-          },
-          {
-            "id": "16837db660ddca15",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Planning.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Planning"
-            }
-          },
-          {
-            "id": "30ef143aa9bd5368",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Files/Principal/Thesis Proposal V2.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Thesis Proposal V2"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -215,12 +188,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "16837db660ddca15",
+  "active": "ecf129456952275c",
   "lastOpenFiles": [
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
-    "Planning.md",
     "Files/Articles/ortega1989.pdf",
+    "Files/Articles/ortega1989.md",
+    "Planning.md",
+    "Articles/ortega1989.md",
+    "Articles",
     "Files/Principal/Thesis Proposal V2.pdf",
+    "ortega1989.md",
+    "Reference.md",
     "Sections/Learning/Online learning law.md",
     "Sections/PBC/Passivity Based Controller Formulation.md",
     "Research/Passivity/Introduction to passivity based control.md",
@@ -238,7 +216,6 @@
     "New folder",
     "Sections/STA",
     "Sections/Learning",
-    "Files/Articles/NeuralPIDControl_Exosqueleton.pdf",
     "Deep Lagrangian Networks.md",
     "Structured learning model.md",
     "Templates/Insert Date.md",
