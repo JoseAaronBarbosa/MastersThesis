@@ -2,8 +2,6 @@
 
 #Passivity 
 
-[[Thesis Proposal V2.pdf]]
-
 The control action is given by:
 $$\tau =\hat{M}(q)\ddot{q}_{r}+\hat{C}(q,\dot{q})\dot{q}_{r}+\hat{g}(q)-K_{d}s+\hat{\Delta}$$
 Where $\hat{M},\hat{C},\hat{g}$ are obtained from mechanical modeling of the manipulator, and represent the nominal feed-forward compensation.
@@ -78,7 +76,7 @@ $$\dot{V}(s)\leq-\alpha V(s)+\bar{\eta}_{1}$$
 Consider the differential equation:
 $$\dot{y}(t)=-\alpha y(t)+\bar{\eta}_{1}$$
 $$y(0)=V(s(0))$$
-By the comparison Lemma [reference](https://drive.google.com/file/d/1KJiT2MT9VMvMBMRmH9i0t0xmSWWo4vc3/view?usp=drive_link), it is guaranteed that:
+By the comparison Lemma [^4], it is guaranteed that:
 $$V(s)\leq y(t)$$
 So we just need to obtain the solution of the differential equation to obtain the estimate:
 $$e^{\alpha t}\dot{y}(t)+e^{\alpha t}\alpha y(t)=e^{\alpha t}\bar{\eta}_{1}$$
@@ -101,3 +99,10 @@ Isolating the error:
 $$||s(t)||\leq\sqrt{\frac{\bar{\eta}_{1}\lambda_{M}}{\lambda_{min}(K_{D}-\Lambda_{1})\lambda_{m}}}:=\rho_{1}$$
 We see that the in order to reduce the radius we could optimally choose $\Lambda_{1}$ to see the smallest possible certificate that the Young inequality can give us. But also that in reality, $K_D$ is the only thing we can increase to reduce the radius. But the high gain amplifies encoder noise and causes other problems. 
 The next step is to introduce the uncertainty residual as a way to reduce the radius.
+
+## References
+
+[^1]: Ortega, R., Loría, A., Nicklasson, P. J., & Sira-Ramírez, H. (1998). _Passivity-Based Control of Euler-Lagrange Systems_. Springer.
+[^2]: Slotine, J.-J. E., & Li, W. (1987). _On the adaptive control of robot manipulators._ International Journal of Robotics Research, 6(3), 49–59.
+[^3]: Kelly, R., Santibáñez, V., & Loría, A. (2005). _Control of Robot Manipulators in Joint Space_. Springer.
+[^4]: H. K. Khalil, _“Nonlinear Systems,”_ 3rd Edition, Prentice Hall, Upper Saddle River, 2002.

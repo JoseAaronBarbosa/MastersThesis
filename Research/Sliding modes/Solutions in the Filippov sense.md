@@ -35,3 +35,8 @@ The equivalent control is not the real discontinuous control being applied on th
 After introducing the sliding dynamics, solutions in the Filippov sense and the equivalent control.
 The resulting sliding dynamics has order reduced by the number of independent switching surfaces.
 Any uncertainty/disturbance that enter through the same channel as the control is completely rejected by the equivalent control once sliding happens.
+
+## References
+
+[^1]: Utkin, V. I. (1992). _Sliding Modes in Control and Optimization_. Springer-Verlag.
+[^2]: Filippov, A. F. (1988). _Differential Equations with Discontinuous Righthand Sides_. Mathematics and Its Applications (Soviet Series), Kluwer Academic Publishers, Dordrecht.

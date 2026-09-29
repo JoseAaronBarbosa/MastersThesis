@@ -25,3 +25,8 @@ $$\frac{d}{dt}\zeta_{i}=\left[ \begin{array}{c}\frac{1}{2}|s|^{-1/2}\dot{s}_{i}\
 The problem comes when trying to find an expression for $\dot{s}_{i}$. From the dynamics:
 $$\dot{s}=M^{-1}(q)[-C(q,\dot{q})s-K_{D}s-\tilde{\Delta}-K_{1}s^{1/2}\mbox{sign}(s)+v]$$
 Since $M^{-1}(q)$ is not diagonal, the channels are not decoupled. And therefore we cannot treat $n$ independent scalar STA loops.
+
+## Reference
+
+[^1]: Moreno, J. A., & Osorio, M. (2012). _Strict Lyapunov functions for the super-twisting algorithm._ IEEE Transactions on Automatic Control, 57(4), 1035–1040.
+[^2]: Nagesh, I., & Edwards, C. (2014). _A multivariable super-twisting sliding mode approach._ Automatica, 50(3), 984–988.

@@ -215,3 +215,8 @@ g(m_{1}l_{c_{1}}+m_{2}l_{1})c_{1}+gm_{2}l_{c_{2}}c_{12}\\
 gm_{2}l_{c_{2}}c_{12}
 \end{array}\right)
 $$
+
+## References
+
+[^1]: Spong, M. W., Hutchinson, S., & Vidyasagar, M. (2006). _Robot Modeling and Control_. Wiley.
+[^2]: Kelly, R., Santibáñez, V., & Loría, A. (2005). _Control of Robot Manipulators in Joint Space_. Springer.

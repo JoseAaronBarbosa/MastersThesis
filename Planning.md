@@ -1,7 +1,7 @@
 
 **Things to research**
 
-- [ ] Passivity based control methods (1989)
+- [x] Passivity based control methods (1989)
 - [ ] Add references to current texts
 - [ ] Byrnes1991
 - [ ] Output-strictly passive outside a ball

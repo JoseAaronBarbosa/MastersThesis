@@ -2,7 +2,6 @@
 
 #Passivity
 
-[Reference](https://arxiv.org/pdf/2608.15222)
 # Introduction
 
 The controller is an energy-transforming and dissipating device that, once interconnected to the plant, ensures that the dissipation and energy of the overall system have a desired shape. The energy-based perspective has the advantage over the traditional signal-processing viewpoint that, the typically nonlinear physical phenomena can be accounted for in the control design process, giving the resulting controller a physical interpretation. Also, this perspective does not rely on canceling non-linearities, making them more robust and energy-efficient.
@@ -42,3 +41,6 @@ Because of the passivity property $\dot{S}_{d} \leq u_{di}^Ty$. Then we can sele
 $$u_{di}=-K_{di}y$$
 with $K_{di}$ positive definite so the derivative of the storage function is $\dot{S}_{d}\leq ||y||^2K_{di}\leq 0$. These properties make the storage function a valid Lyapunov function and therefore $x^*$ is a locally stable equilibrium for the closed-loop system. The detectability condition then ensures asymptotical stability and if the storage function is radially unbounded then the stability properties are global.
 
+## References
+
+[^1]: Borja, P., and Ortega, R., (2024) _Introduction to Passivity-based Control_. 

@@ -1,9 +1,6 @@
-	2026-09-14
+2026-09-14
 
 #DeLaN
-
-[Reference]([https://drive.google.com/file/d/1Qe_jE0gJ9nfRwxg3FxhKLtH0wlNdNL0f/view?usp=drive_link](https://drive.google.com/file/d/1WqKZJCDLoiV_n9bRT29UD3w1PLu7RuQN/view?usp=sharing))
-
 ## Model of the system
 
 They use the knowledge from Lagrangian mechanics and encode this prior within a deep learning architecture.
@@ -45,3 +42,7 @@ It is important to note that the frictional force is already a function of the g
 $$M(q)\ddot{q}+C(q,\dot{q})+\frac{\partial U}{\partial q}+\tau_{{f_{i}}}=\sum_{i}\tau_{i}$$
 The parameters can't just be learned using regular adaptive control since the function is not linear in the parameters. So a network is needed to capture the Stribeck type nonlinearity. 
 Using monotone activation functions and non-negative weights for the network we can ensure the fulfillment of the property $\dot{q}^{T}F(\dot{q})\dot{q}\geq 0$.
+
+## References
+
+[^1]: Lutter, M. and Listmann, K. and Peters, Jan. (2019). _Deep Lagrangian Networks for end-to-end learning of energy-based control for under-actuated systems_. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 5562-5569.

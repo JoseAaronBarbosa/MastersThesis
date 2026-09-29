@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning.md",
+                "file": "Sections/PBC/Nominal dynamics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Planning"
+              "title": "Nominal dynamics"
             }
           }
         ]
@@ -190,24 +190,27 @@
   },
   "active": "ecf129456952275c",
   "lastOpenFiles": [
+    "Sections/PBC/Passivity Based Controller Formulation.md",
+    "Sections/STA/Composite Lyapunov function.md",
+    "Sections/Learning/Online learning law.md",
+    "Sections/Learning/Gaining span on the parametrization.md",
+    "Research/Sliding modes/Sliding surface on an E-L system.md",
+    "Research/Sliding modes/Solutions in the Filippov sense.md",
+    "Research/Structured learning/Deep Lagrangian Networks.md",
+    "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
+    "Research/Passivity/Introduction to passivity based control.md",
+    "Sections/PBC/Nominal dynamics.md",
     "Files/Articles/ortega1989.pdf",
-    "Files/Articles/ortega1989.md",
+    "Files/Articles/byrnes1991.pdf",
     "Planning.md",
+    "Files/Articles/byrnes1991.md",
+    "Files/Articles/ortega1989.md",
     "Articles/ortega1989.md",
     "Articles",
     "Files/Principal/Thesis Proposal V2.pdf",
     "ortega1989.md",
     "Reference.md",
-    "Sections/Learning/Online learning law.md",
-    "Sections/PBC/Passivity Based Controller Formulation.md",
-    "Research/Passivity/Introduction to passivity based control.md",
-    "Research/Sliding modes/Sliding surface on an E-L system.md",
-    "Research/Sliding modes/Solutions in the Filippov sense.md",
-    "Research/Structured learning/Deep Lagrangian Networks.md",
-    "Sections/STA/Composite Lyapunov function.md",
-    "Sections/PBC/Nominal dynamics.md",
-    "Sections/Learning/Gaining span on the parametrization.md",
     "References/References.md",
     "Files/Principal/plan_first_term.pdf",
     "Scripts/Nominal_dynamics.m.crdownload",
@@ -215,7 +218,6 @@
     "Scripts",
     "New folder",
     "Sections/STA",
-    "Sections/Learning",
     "Deep Lagrangian Networks.md",
     "Structured learning model.md",
     "Templates/Insert Date.md",

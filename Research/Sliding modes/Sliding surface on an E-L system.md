@@ -1,7 +1,6 @@
 2026-09-10
 
 #SlidingModes #ELsystem 
-
 ## Sliding surface
 
 If we define the tracking error as:
@@ -70,6 +69,11 @@ since every term is an scalar. Then if we set the extra terms to zero:
 $$\dot{\tilde{\theta}}=\Gamma Y^T(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})s$$
 Which is the adaptation law. If the parametric error gets to zero:
 $$\dot{V}=-s^TKs$$ and we can use Barbalat's lemma or La Salle's principle to verify asymptotic convergence of $s\to0$.
+
+## References
+
+[^1]: Slotine, J.-J. E., & Sastry, S. S. (1983). _Tracking control of non-linear systems using sliding surfaces, with application to robot manipulators._ International Journal of Control, 38(2), 465–492.
+[^2]: Slotine, J.-J. E., & Li, W. (1987). _On the adaptive control of robot manipulators_. International Journal of Robotics Research, 6(3), 49–59.
 
 
 

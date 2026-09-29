@@ -1,8 +1,6 @@
 2026-09-26
 
 #Passivity #ELsystem 
-
-[Reference](Files/Articles/ortega1989.pdf)
 ## Dynamics of rigid robots
 
 The matrix form of the Euler-Lagrange equations for rigid robots is:
@@ -149,8 +147,68 @@ And it can be proven that ${}e\to 0{}$ as ${}t\to\infty{}$.
 	- In my thesis, the online update law is driven by s directly, and this family of controllers does not have the problem of e -> 0 when the prediction error is bounded. Also, the filtering is done offline so it does not face the same swapping of operators problem. It only filters the data before the regression.
 ## Passivity based control
 
+### General theorem
 
+With a reference trajectory ${}q^d\in\mathcal{C}^2{}$, and error ${}e(t)=q(t)-q^d(t){}$. Consider the differential equation:
+$$
+D(q)\dot{r}+C(q,\dot{q})r+K_{v}r=\Psi
+$$
+Where ${}r{}$ is given by:
+$$
+r=F(s)^{-1}e
+$$
+Where ${}F(s){}$ is strictly proper, stable, and the mapping ${}-r\to\Psi{}$ is passive. Then $\dot{e},e\to 0$ as ${}t\to\infty{}$, because ${}r\to 0{}$.
+For this theorem it is important to use the particular choice of $C$ that makes ${}\dot{D}+2C{}$ skew-symmetric. Also, since ${}F(s){}$ is strictly proper, then ${}r{}$ contains derivatives of ${}e{}$ and therefore derivatives of ${}q{}$. If ${}F(s){}$ is of relative degree one, then it only contains the first derivative and therefore it does not depend on the acceleration.
 
+### Known parameter case
+
+The control:
+$$
+\tau=D(q)a+C(q,\dot{q})v+g(q)-K_{v}(q-v)
+$$
+when substituting into the dynamics of the differential equation gives:
+$$
+D(q)\dot{r}+C(q,\dot{q})r+K_{v}r=0
+$$
+Where ${}r=\dot{q}-v{}$. Defining also ${}v=\dot{q}^d-sK(s)e{}$, ${}a=\dot{v}=\ddot{q}-K(s)e{}$ for a given compensator ${}K(s){}$. Then ${}r=F(s)^{-1}e{}$. And the stability follows form the above theorem.
+
+### Adaptive version
+
+Using the control law with the estimated matrices:
+$$
+\tau=\hat{D}(q)a+\hat{C}(q,\dot{q})v+\hat{g}(q)-K_{v}r
+$$
+Substituting into the dynamics we obtain:
+$$
+D(q)\dot{r}+C(q,\dot{q})r+K_{v}r=\tilde{D}(q)a+\tilde{C}(q,\dot{q})v+\tilde{g}
+$$
+Given the linearity in the parameters condition, then we can write:
+$$
+D(q)\dot{r}+C(q,\dot{q})r+K_{v}r=Y(q,\dot{q},v,a)\tilde{\theta}:=\Psi
+$$
+The regressor does not depend on acceleration measurements.
+The parameter update law is calculated in a way that makes the mapping passive, and from the general theorem the stability follows. This parameter update law is:
+$$
+\dot{\tilde{\theta}}=-\Gamma^{-1}Y^Tr
+$$
+for a given ${}\Gamma>0{}$.
+
+#### Special cases
+
+The algorithm of Slotine and Li follows from the choice:
+$$
+K(s)=\frac{1}{s}\Lambda
+$$
+The Sadegh-Horowitz scheme follows from:
+$$
+K(s)=K_{p}+K_{d}s+\frac{K_i}{s}
+$$
+
+	- The passive mapping obtained in the learning law is from epsilon to the variable s. In this paper, epsilon does not exist since they assume the system is linear in the parameters, so the adaptive controller can be formulated. We assume (due to the friction) that the system is not linear in the parameters and therefore the usage of the DeLaN to approximate the friction, carries an approximation error (epsilon). 
+
+## References
+
+[^1]: Ortega, R., & Spong, M. W. (1989). _Adaptive motion control of rigid robots: a tutorial._ Automatica, 25(6), 877–888.
 
 
 
