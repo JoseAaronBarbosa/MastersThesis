@@ -2,7 +2,7 @@
 
 #Passivity 
 
-The control action is given by:
+The control action is given by:[^1]
 $$\tau =\hat{M}(q)\ddot{q}_{r}+\hat{C}(q,\dot{q})\dot{q}_{r}+\hat{g}(q)-K_{d}s+\hat{\Delta}$$
 Where $\hat{M},\hat{C},\hat{g}$ are obtained from mechanical modeling of the manipulator, and represent the nominal feed-forward compensation.
 The position tracking error is defined as:
@@ -53,7 +53,7 @@ The derivative is:
 $$\dot{V}(s)=-s^{T}K_{D}s-s^{T}\Delta$$
 The Youngs inequality states that:
 $$-a^{T}b\leq \frac{1}{2\epsilon}a^{T}\Lambda_{1}a+\frac{\epsilon}{2}b^{T}\Lambda_{1}^{-1}b$$
-for $\epsilon>0$, $\Lambda_{1}>0$, and vector $a,b\in\mathbb{R}^n$. Applying this to $-s^T\Delta$ and setting $\epsilon=0.5$ without loss of generality:
+for $\epsilon>0$, $\Lambda_{1}>0$, and vector $a,b\in\mathbb{R}^n$. Applying this to $-s^T\Delta$ and setting $\epsilon=0.5$ without loss of generality:[^2][^3]
 $$\begin{align}
  \dot{V}(s)&\leq -s^TK_{D}s-s^T\Lambda_{1}s+\frac{1}{4}\Delta^T\Lambda_{1}^{-1}\Delta  \\
  &=-s^{T}(K_{D}-\Lambda_{1})s+\frac{1}{4}\Delta^T\Lambda_{1}^{-1}\Delta 

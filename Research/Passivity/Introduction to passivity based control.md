@@ -24,7 +24,7 @@ $$S(x(t))\leq S(x(0))+\int_0^t[u^T(\tau)y(\tau)-\delta||u(\tau)||^2]d\tau$$
 $$S(x(t))\leq S(x(0))+\int_0^t[u^T(\tau)y(\tau)-\epsilon||y(\tau)||^2]d\tau$$
 An interpretation is that we cannot extract from a passive system more energy than the it originally stored. If the storage functions is differentiable then we can write it as:
 $$\dot{S}\leq u^T(t)y(t)$$
-The negative feedback interconnection of two passive system yields another passive system.
+The negative feedback interconnection of two passive system yields another passive system.[^1]
 
 # Passivity-based control, energy shaping and damping injection
 
@@ -39,7 +39,7 @@ S_{d}(x) &> 0
 \end{align}$$
 Because of the passivity property $\dot{S}_{d} \leq u_{di}^Ty$. Then we can select:
 $$u_{di}=-K_{di}y$$
-with $K_{di}$ positive definite so the derivative of the storage function is $\dot{S}_{d}\leq ||y||^2K_{di}\leq 0$. These properties make the storage function a valid Lyapunov function and therefore $x^*$ is a locally stable equilibrium for the closed-loop system. The detectability condition then ensures asymptotical stability and if the storage function is radially unbounded then the stability properties are global.
+with $K_{di}$ positive definite so the derivative of the storage function is $\dot{S}_{d}\leq ||y||^2K_{di}\leq 0$. These properties make the storage function a valid Lyapunov function and therefore $x^*$ is a locally stable equilibrium for the closed-loop system. The detectability condition then ensures asymptotical stability and if the storage function is radially unbounded then the stability properties are global.[^1]
 
 ## References
 

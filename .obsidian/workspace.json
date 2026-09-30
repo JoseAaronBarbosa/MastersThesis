@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "856eed25ab8b8a86",
+        "id": "dad27888805c4393",
         "type": "tabs",
         "children": [
           {
-            "id": "ecf129456952275c",
+            "id": "2c6183969fac6bdc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sections/PBC/Nominal dynamics.md",
+                "file": "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nominal dynamics"
+              "title": "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems"
             }
           }
         ]
@@ -188,22 +188,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "ecf129456952275c",
+  "active": "2c6183969fac6bdc",
   "lastOpenFiles": [
+    "Research/Passivity/Introduction to passivity based control.md",
+    "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
+    "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
+    "Files/Articles/byrnes1991.pdf",
+    "Sections/PBC/Nominal dynamics.md",
+    "Planning.md",
+    "References/References.md",
+    "Sections/Learning/Online learning law.md",
+    "Research/Sliding modes/Sliding surface on an E-L system.md",
     "Sections/PBC/Passivity Based Controller Formulation.md",
     "Sections/STA/Composite Lyapunov function.md",
-    "Sections/Learning/Online learning law.md",
     "Sections/Learning/Gaining span on the parametrization.md",
-    "Research/Sliding modes/Sliding surface on an E-L system.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
     "Research/Structured learning/Deep Lagrangian Networks.md",
-    "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
-    "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
-    "Research/Passivity/Introduction to passivity based control.md",
-    "Sections/PBC/Nominal dynamics.md",
     "Files/Articles/ortega1989.pdf",
-    "Files/Articles/byrnes1991.pdf",
-    "Planning.md",
     "Files/Articles/byrnes1991.md",
     "Files/Articles/ortega1989.md",
     "Articles/ortega1989.md",
@@ -211,7 +212,6 @@
     "Files/Principal/Thesis Proposal V2.pdf",
     "ortega1989.md",
     "Reference.md",
-    "References/References.md",
     "Files/Principal/plan_first_term.pdf",
     "Scripts/Nominal_dynamics.m.crdownload",
     "Scripts/Nominal_dynamics.m",

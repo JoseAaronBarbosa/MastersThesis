@@ -1,6 +1,7 @@
 2026-09-26
 
-#Passivity #ELsystem 
+#Passivity #ELsystem [^1]
+
 ## Dynamics of rigid robots
 
 The matrix form of the Euler-Lagrange equations for rigid robots is:

@@ -2,7 +2,7 @@
 **Things to research**
 
 - [x] Passivity based control methods (1989)
-- [ ] Add references to current texts
+- [x] Add references to current texts
 - [ ] Byrnes1991
 - [ ] Output-strictly passive outside a ball
 - [ ] STA stability proof

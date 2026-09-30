@@ -3,7 +3,7 @@
 #DeLaN
 ## Model of the system
 
-They use the knowledge from Lagrangian mechanics and encode this prior within a deep learning architecture.
+They use the knowledge from Lagrangian mechanics and encode this prior within a deep learning architecture.[^1]
 Let the Lagrangian be defined as:
 $$\mathcal{L}=T-U$$
 Where $T=\frac{1}{2}\dot{q}^TM(q)\dot{q}$ is the kinetic energy and $V$ is the potential energy. We wish to substitute this in the Euler-Lagrange differential equation, so we will calculate each term:
@@ -15,7 +15,7 @@ Finally:
 $$M(q)\ddot{q}+\dot{M}(q)\dot{q}-\frac{1}{2}\left(\frac{\partial}{\partial q}(\dot{q}^TM(q)\dot{q})\right)+\frac{\partial U}{\partial q}=\sum_{i}\tau_{i}$$
 We combine the middle terms into the Coriolis matrix, and the third them is the gravitational torque.
 $$M(q)\ddot{q}+C(q,\dot{q})+\frac{\partial U}{\partial q}=\sum_{i}\tau_{i}$$
-We can see that the Coriolis matrix is calculated from the Inertia matrix. Therefore we do not have to learn it, we can just derivate it from $M(q)$. Moreover, if we use the Christoffel symbols, we can calculate $C(q,\dot{q})$ such that $(\dot{M}(q)-2C(q,\dot{q}))$ is skew-symmetric. 
+We can see that the Coriolis matrix is calculated from the Inertia matrix. Therefore we do not have to learn it, we can just derivate it from $M(q)$. Moreover, if we use the Christoffel symbols, we can calculate $C(q,\dot{q})$ such that $(\dot{M}(q)-2C(q,\dot{q}))$ is skew-symmetric.[^1] 
 
 ## Structured learning
 
@@ -26,10 +26,10 @@ $$\dot{q}^{T}F(\dot{q})\geq 0$$
 The last one is referred to the friction property and is not included in the nominal model. These properties can be enforced via a parametrization of the matrices, for example:
 $$\hat{M}(q)=\hat{L}(q;\theta)\hat{L}^T(q;\theta)+\epsilon I$$
 $$\hat{U}=\hat{U}(q;\psi)$$
-Where $\hat{L}$ is a lower triangular matrix with a non-negative diagonal, $\theta$ and $\psi$ are the network parameters and $\epsilon$ is a small positive constant.
+Where $\hat{L}$ is a lower triangular matrix with a non-negative diagonal, $\theta$ and $\psi$ are the network parameters and $\epsilon$ is a small positive constant.[^1]
 It is important to notice that in the calculation of the gravitational torque and the Coriolis matrix, we need to take the derivatives with respect to certain inputs. Full differentiation of the neural networks is what allows us to take this derivatives. The network will compute a single scalar value for the potential energy, and we can use automatic differentiation with respect to each input coordinate to obtain each entry of the gravitational vector. Meaning that we don't have to use an additional architecture to perform the numeric calculations.
 
-The learning becomes a two step process. The decomposition into inertial, Coriolis and gravitational forces is learned offline with unsupervised learning. Then, the superposition of the different forces is learned supervised, with a learning function obtained from a Lyapunov analysis, trying to minimize the norm between the prediction of the network and the observed motor torque.
+The learning becomes a two step process. The decomposition into inertial, Coriolis and gravitational forces is learned offline with unsupervised learning. Then, the superposition of the different forces is learned supervised, with a learning function obtained from a Lyapunov analysis, trying to minimize the norm between the prediction of the network and the observed motor torque.[^1]
 
 ## Introducing friction
 
@@ -41,7 +41,7 @@ Where the coefficients are of static friction $\tau_{C_{v}}$, viscous friction $
 It is important to note that the frictional force is already a function of the generalized coordinates and therefore can enter the model as it is.
 $$M(q)\ddot{q}+C(q,\dot{q})+\frac{\partial U}{\partial q}+\tau_{{f_{i}}}=\sum_{i}\tau_{i}$$
 The parameters can't just be learned using regular adaptive control since the function is not linear in the parameters. So a network is needed to capture the Stribeck type nonlinearity. 
-Using monotone activation functions and non-negative weights for the network we can ensure the fulfillment of the property $\dot{q}^{T}F(\dot{q})\dot{q}\geq 0$.
+Using monotone activation functions and non-negative weights for the network we can ensure the fulfillment of the property $\dot{q}^{T}F(\dot{q})\dot{q}\geq 0$.[^1]
 
 ## References
 

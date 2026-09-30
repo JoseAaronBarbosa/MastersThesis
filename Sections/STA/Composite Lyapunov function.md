@@ -10,7 +10,7 @@ $$\dot{v}=-K_{2}\mbox{sign}(s)$$
 $$M(q)\dot{s}=-C(q,\dot{q})s-K_{D}s-\tilde{\Delta}-K_{1}s^{1/2}\mbox{sign}(s)+v$$
 Since what we can bound with the spectral normalization is the derivative of the residual uncertainty, we need to get an equation with it. Define $\eta=v-\tilde{\Delta}$, then $\dot{\eta}=\dot{v}-\dot{\tilde{\Delta}}=-K_{2}\mbox{sign}(s)-\dot{\tilde{\Delta}}$. 
 
-Consider the Lyapunov candidate function:
+Consider the Lyapunov candidate function:[^1]
 $$V(s,\eta,\tilde{W})=\frac{1}{2}s^{T}M(q)s+\sum_{i=1}^n\zeta_{i}^TP_{i}\zeta_{i}+\frac{1}{2}\mbox{tr}\{\tilde{W}^TK_{\omega}^{-1}\tilde{W}\}$$
 Where $\zeta_i=[\begin{array}{cc}\sqrt{|s|}\mbox{sign}(s)&\eta_{i}\end{array}]^T$. 
 
@@ -24,7 +24,7 @@ For $s_{i}\neq 0$. This is what forces us to use the Filippov sense of the exist
 $$\frac{d}{dt}\zeta_{i}=\left[ \begin{array}{c}\frac{1}{2}|s|^{-1/2}\dot{s}_{i}\\ -k_{2_{i}}\mbox{sign}(s_{i})-\dot{\tilde{\Delta}}_{i}\end{array} \right]$$
 The problem comes when trying to find an expression for $\dot{s}_{i}$. From the dynamics:
 $$\dot{s}=M^{-1}(q)[-C(q,\dot{q})s-K_{D}s-\tilde{\Delta}-K_{1}s^{1/2}\mbox{sign}(s)+v]$$
-Since $M^{-1}(q)$ is not diagonal, the channels are not decoupled. And therefore we cannot treat $n$ independent scalar STA loops.
+Since $M^{-1}(q)$ is not diagonal, the channels are not decoupled. And therefore we cannot treat $n$ independent scalar STA loops.[^2]
 
 ## Reference
 

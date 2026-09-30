@@ -48,7 +48,7 @@ s_{12} & c_{12} & 0 & s_{12}l_{2}+s_{1}l_{1} \\
 $$
 ## Jacobian
 
-Now we can obtain the Jacobian at each center of mass for the links:
+Now we can obtain the Jacobian at each center of mass for the links:[^1][^2]
 $$
 J_{v,c_{1}}=\left(\begin{array}{cc}
 z_{0}\times(o_{c_{1}}-o_{0}) & 0
@@ -166,7 +166,7 @@ $$
 
 ## Coriolis matrix
 
-For each entry of the Coriolis matrix:
+For each entry of the Coriolis matrix:[^1][^2]
 $$
 C_{kj}(q,\dot{q})=\sum_{i=1}^nc_{ijk}\dot{q}_{i}
 $$

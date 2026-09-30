@@ -15,7 +15,7 @@ At every point where sign is discontinuous, we replace the single value with the
 $$
 \dot{x}\in F(x)
 $$
-A Filippov solutions is an absolutely continuous curve ${}x(t){}$ satisfying ${}\dot{x}(t)\in F(x(t)){}$ for almost every ${}t{}$.
+A Filippov solutions is an absolutely continuous curve ${}x(t){}$ satisfying ${}\dot{x}(t)\in F(x(t)){}$ for almost every ${}t{}$.[^2]
 
 ## Equivalent control
 
@@ -28,13 +28,13 @@ If ${}\frac{ \partial s }{ \partial x }g(x){}$ is invertible then we can solve f
 $$
 u_{eq}=-\left[ \frac{ \partial s }{ \partial x } g(x) \right]^{-1}\frac{ \partial s }{ \partial x } f(x)
 $$
-The equivalent control is not the real discontinuous control being applied on the system, it's the average that the real switching control effectively produces and coincides exactly with the Filippov set values map that makes ${}s=0{}$ consistent.
+The equivalent control is not the real discontinuous control being applied on the system, it's the average that the real switching control effectively produces and coincides exactly with the Filippov set values map that makes ${}s=0{}$ consistent.[^1]
 
 ## Utkin's first chapter
 
 After introducing the sliding dynamics, solutions in the Filippov sense and the equivalent control.
 The resulting sliding dynamics has order reduced by the number of independent switching surfaces.
-Any uncertainty/disturbance that enter through the same channel as the control is completely rejected by the equivalent control once sliding happens.
+Any uncertainty/disturbance that enter through the same channel as the control is completely rejected by the equivalent control once sliding happens.[^1]
 
 ## References
 

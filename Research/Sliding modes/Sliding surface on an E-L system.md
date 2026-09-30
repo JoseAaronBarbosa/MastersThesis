@@ -11,7 +11,7 @@ What we are trying to achieve is to drive both errors to zero, so the Sloting ap
 $$s=\dot{e}+\Lambda e$$
 If we could somehow force $s=0$ then the error dynamics would be:
 $$\dot{e}=-\Lambda e$$
-Which is an exponentially stable first order system. $\Lambda$ is a positive definite matrix that will give us the convergence rate on the sliding surface, and it is treated as a design parameter, limited by the physical restrictions of the actuators and the dynamics.
+Which is an exponentially stable first order system. $\Lambda$ is a positive definite matrix that will give us the convergence rate on the sliding surface, and it is treated as a design parameter, limited by the physical restrictions of the actuators and the dynamics.[^1]
 If we take the derivative of the sliding surface:
 $$\dot{s}=\ddot{q}-(\ddot{q}_{d}-\Lambda \dot{e})$$
 If we define the reference acceleration as:
@@ -42,11 +42,11 @@ $$\begin{align} M(q)\dot{s}&=-M(q)Ks-M(q)K_{s}\mbox{sgn}(s)+d \\
 \dot{s} &=-Ks-K_{s}\mbox{sgn}(s)+d
 \end{align}
 $$
-Always that $K_{s}>d$.
+Always that $K_{s}>d$.[^1]
 
 ## Adaptive part
 
-Since we can write the robot dynamics as a combination of a regressor and a parameter vector:
+Since we can write the robot dynamics as a combination of a regressor and a parameter vector:[^2]
 $$M(q)\ddot{q}+C(q,\dot{q})\dot{q}+g(q)=M(q)\dot{s}+M(q)\ddot{q}_{r}+C(q,\dot{q})\dot{q}_{r}+C(q,\dot{q})s+g(q)=\tau$$
 $$M(q)\ddot{q}_{r}+C(q,\dot{q})\dot{q}_{r}+g(q)=Y(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})\theta$$
 $$M(q)\dot{s}=\tau-C(q,\dot{q})s-Y(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})\theta$$
@@ -64,10 +64,10 @@ $$\dot{V}=-s^TKs-s^TC(q,\dot{q})s-s^TY(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})\tilde
 $$\dot{V}=-s^TKs-s^TY(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})\tilde{\theta}+\frac{1}{2}s^T[\dot{M}(q)-2C(q,\dot{q})]s+\tilde{\theta}^T\Gamma^{-1}\dot{\tilde{\theta}}$$
 $$\dot{V}=-s^TKs-s^TY(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})\tilde{\theta}+\tilde{\theta}^T\Gamma^{-1}\dot{\tilde{\theta}}$$
 $$\dot{V}=-s^TKs-\tilde{\theta}^TY^T(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})s+\tilde{\theta}^T\Gamma^{-1}\dot{\tilde{\theta}}$$
-$$\dot{V}=-s^TKs-\tilde{\theta}^T[Y^T(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})s+\Gamma^{-1}\dot{\tilde{\theta}}]$$
+$$\dot{V}=-s^TKs-\tilde{\theta}^T[Y^T(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})s-\Gamma^{-1}\dot{\tilde{\theta}}]$$
 since every term is an scalar. Then if we set the extra terms to zero:
 $$\dot{\tilde{\theta}}=\Gamma Y^T(q,\dot{q},\dot{q}_{r},\ddot{q}_{r})s$$
-Which is the adaptation law. If the parametric error gets to zero:
+Which is the adaptation law.[^2] If the parametric error gets to zero:
 $$\dot{V}=-s^TKs$$ and we can use Barbalat's lemma or La Salle's principle to verify asymptotic convergence of $s\to0$.
 
 ## References
