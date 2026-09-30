@@ -3,8 +3,8 @@
 
 - [x] Passivity based control methods (1989)
 - [x] Add references to current texts
-- [ ] Byrnes1991
-- [ ] Output-strictly passive outside a ball
+- [x] Byrnes1991
+- [x] Output-strictly passive outside a ball
 - [ ] STA stability proof
 - [ ] External passivity statements and internal port
 - [ ] Young's inequality

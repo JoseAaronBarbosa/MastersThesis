@@ -95,8 +95,16 @@ $$\dot{V}_{l}\leq-\left(\lambda_{min}(K_{D})||s||-\frac{\kappa}{4}||W^*||_{F}^2\
 ## Passivity of the robust modification
 
 Once again, setting the robust action to zero and defining the input and output as before:
-$$\dot{V}_{l}\leq u^Ty-\rho||y||^{2}+\frac{\kappa}{4}||W^*||^{2}_{F}||y$$
-We see that the extra term is linear in ${}y{}$ not quadratic. So this is not output strictly passive.
+$$\dot{V}_{l}\leq u^Ty-\rho||y||^{2}+\frac{\kappa}{4}||W^*||^{2}_{F}||y||$$
+
+$$
+\dot{V}_{l}\leq u^Ty-\left(\rho-\frac{\kappa}{4}||W^*||^2_{F}\right)||y||
+$$
+We see that the extra term is linear in ${}y{}$ not quadratic. So this is not output strictly passive. We can define a weaker passivity argument as semi-passive, where passivity holds outside a ball [^6], in this case, when:
+$$
+\rho>\frac{\kappa}{4}||W^*||^2_{F}
+$$
+We can see that this tells us to not increase the gain of the robust modification too much, or we risk losing passivity too early.
 
 ## References
 
@@ -104,4 +112,5 @@ We see that the extra term is linear in ${}y{}$ not quadratic. So this is not ou
 [^2]: Sanner, R. M., & Slotine, J.-J. E. (1992). _Gaussian networks for direct adaptive control._ IEEE Transactions on Neural Networks, 3(6), 837–863.
 [^3]: Lewis, F. L., Yesildirek, A., & Liu, K. (1996). _Multilayer neural-net robot controller with guaranteed tracking performance._ IEEE Transactions on Neural Networks, 7(2), 388–399.
 [^4]: Yu, W., & Li, X. (2001). _Some new results on system identification with dynamic neural networks._ IEEE Transactions on Neural Networks, 12(2), 412–417.
-[^5]: Yu, W., & Rosen, J. (2012/2013). _Neural PID control of robot manipulators with application to an upper limb exoskeleton.
+[^5]: Yu, W., & Rosen, J. (2012/2013). _Neural PID control of robot manipulators with application to an upper limb exoskeleton._
+[^6]: Pogromsky, A. Yu. (1998). _Passivity based design of synchronizing systems._ International Journal of Bifurcation and Chaos, 8(2), 295–319.

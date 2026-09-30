@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
+                "file": "Planning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems"
+              "title": "Planning"
             }
           }
         ]
@@ -190,16 +190,25 @@
   },
   "active": "2c6183969fac6bdc",
   "lastOpenFiles": [
+    "Files/Principal/plan_first_term.pdf",
+    "Files/Principal/ThesisProposal.pdf",
+    "Files/Principal/Thesis Proposal V2.pdf",
+    "Files/Courses/PDWithNeuralCompensation.pdf",
+    "Files/Articles/yu2004.pdf",
+    "Files/Articles/yu2012.pdf",
+    "Files/Articles/resendiz2008.pdf",
+    "Files/Articles/pogromsky1997.pdf",
+    "Planning.md",
+    "Files/Articles/byrnes1991.pdf",
+    "Sections/Learning/Online learning law.md",
+    "Sections/PBC/Nominal dynamics.md",
+    "Sections/PBC/Passivity Based Controller Formulation.md",
+    "Research/Passivity/Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
     "Research/Passivity/Introduction to passivity based control.md",
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
     "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
-    "Files/Articles/byrnes1991.pdf",
-    "Sections/PBC/Nominal dynamics.md",
-    "Planning.md",
     "References/References.md",
-    "Sections/Learning/Online learning law.md",
     "Research/Sliding modes/Sliding surface on an E-L system.md",
-    "Sections/PBC/Passivity Based Controller Formulation.md",
     "Sections/STA/Composite Lyapunov function.md",
     "Sections/Learning/Gaining span on the parametrization.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
@@ -209,15 +218,8 @@
     "Files/Articles/ortega1989.md",
     "Articles/ortega1989.md",
     "Articles",
-    "Files/Principal/Thesis Proposal V2.pdf",
     "ortega1989.md",
     "Reference.md",
-    "Files/Principal/plan_first_term.pdf",
-    "Scripts/Nominal_dynamics.m.crdownload",
-    "Scripts/Nominal_dynamics.m",
-    "Scripts",
-    "New folder",
-    "Sections/STA",
     "Deep Lagrangian Networks.md",
     "Structured learning model.md",
     "Templates/Insert Date.md",
