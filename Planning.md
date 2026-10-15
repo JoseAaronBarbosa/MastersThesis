@@ -7,8 +7,9 @@
 - [x] Output-strictly passive outside a ball
 - [ ] STA stability proof
 - [ ] External passivity statements and internal port
-- [ ] Young's inequality
+- [x] Young's inequality
 - [ ] Rank-one outer products of fixed directions
-- [ ] Comparison lemma
+- [x] Comparison lemma
 - [ ] ${}L_{\infty}{}$ version of the ${}\mathcal{L}_{2}{}$ gain for the learning module
 - [ ] Conic combination
+- [ ] IDA-PBC formulation
