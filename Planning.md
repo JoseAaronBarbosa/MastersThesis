@@ -6,10 +6,10 @@
 - [x] Byrnes1991
 - [x] Output-strictly passive outside a ball
 - [ ] STA stability proof
-- [ ] External passivity statements and internal port
+- [x] External passivity statements and internal port
 - [x] Young's inequality
-- [ ] Rank-one outer products of fixed directions
+- [x] Rank-one outer products of fixed directions
 - [x] Comparison lemma
 - [ ] ${}L_{\infty}{}$ version of the ${}\mathcal{L}_{2}{}$ gain for the learning module
-- [ ] Conic combination
+- [x] Conic combination
 - [ ] IDA-PBC formulation

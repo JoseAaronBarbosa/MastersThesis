@@ -1,0 +1,12 @@
+\beamer@sectionintoc {1}{Problem and architecture}{3}{0}{1}
+\beamer@sectionintoc {2}{Nominal model: 2R planar arm}{6}{0}{2}
+\beamer@sectionintoc {3}{Slotine--Li and the passivity template}{7}{0}{3}
+\beamer@sectionintoc {4}{Passivity theory}{9}{0}{4}
+\beamer@sectionintoc {5}{Nominal PBC and baseline radius}{12}{0}{5}
+\beamer@sectionintoc {6}{DeLaN}{15}{0}{6}
+\beamer@sectionintoc {7}{Integral momentum regression}{17}{0}{7}
+\beamer@sectionintoc {8}{Spectral normalization}{18}{0}{8}
+\beamer@sectionintoc {9}{Online learning law}{20}{0}{9}
+\beamer@sectionintoc {10}{Super-twisting}{23}{0}{10}
+\beamer@sectionintoc {11}{Simulation results (placeholders)}{24}{0}{11}
+\beamer@sectionintoc {12}{Open points}{25}{0}{12}
