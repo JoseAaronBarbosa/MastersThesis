@@ -11,12 +11,14 @@
             "id": "9c2c53cb7666822b",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Presentations/thesis_progress_presentation.pdf"
+                "file": "Planning.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "thesis_progress_presentation"
+              "icon": "lucide-file",
+              "title": "Planning"
             }
           }
         ]
@@ -188,17 +190,18 @@
   },
   "active": "9c2c53cb7666822b",
   "lastOpenFiles": [
+    "Research/Structured learning/L-Learning.md",
+    "Presentations/thesis_progress_presentation.pdf",
+    "Files/Articles/quan2026.pdf",
+    "Files/Articles/quan2026.pdf.crdownload",
     "Planning.md",
     "Presentations/thesis_progress_presentation.toc",
     "Presentations/thesis_progress_presentation.tex",
     "Presentations/thesis_progress_presentation.synctex.gz",
     "Presentations/thesis_progress_presentation.snm",
-    "Presentations/thesis_progress_presentation.pdf",
     "Presentations/thesis_progress_presentation.out",
     "Presentations/thesis_progress_presentation.nav",
     "Presentations/thesis_progress_presentation.log",
-    "Presentations/thesis_progress_presentation.fls",
-    "Presentations/thesis_progress_presentation.fdb_latexmk",
     "Presentations/Images/Trajectories.png",
     "Presentations/Images/pbc_unmatched.png",
     "Presentations/Images/MSE_comparison.png",
@@ -230,7 +233,6 @@
     "Files/Articles/ortega1989.md",
     "Articles/ortega1989.md",
     "ortega1989.md",
-    "Reference.md",
-    "Deep Lagrangian Networks.md"
+    "Reference.md"
   ]
 }
