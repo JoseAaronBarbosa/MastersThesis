@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b9bc6b482986665d",
+        "id": "06780f1d4ff99d5b",
         "type": "tabs",
         "children": [
           {
-            "id": "9c2c53cb7666822b",
+            "id": "b44cb1678fa53b94",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning.md",
-                "mode": "preview",
+                "file": "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Planning"
+              "title": "A new Feedback Method for Dynamic Control of Manipulators"
             }
           }
         ]
@@ -188,20 +188,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "9c2c53cb7666822b",
+  "active": "b44cb1678fa53b94",
   "lastOpenFiles": [
+    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
+    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md.crdownload",
+    "Planning.md",
+    "Research/Passivity/Takegaki_Arimoto_1981_notes.md.crdownload",
+    "Files/Articles/takegaki1981.pdf",
+    "Files/Articles/takegaki1981.pdf.crdownload",
     "Research/Structured learning/L-Learning.md",
     "Presentations/thesis_progress_presentation.pdf",
     "Files/Articles/quan2026.pdf",
     "Files/Articles/quan2026.pdf.crdownload",
-    "Planning.md",
     "Presentations/thesis_progress_presentation.toc",
     "Presentations/thesis_progress_presentation.tex",
     "Presentations/thesis_progress_presentation.synctex.gz",
-    "Presentations/thesis_progress_presentation.snm",
-    "Presentations/thesis_progress_presentation.out",
-    "Presentations/thesis_progress_presentation.nav",
-    "Presentations/thesis_progress_presentation.log",
     "Presentations/Images/Trajectories.png",
     "Presentations/Images/pbc_unmatched.png",
     "Presentations/Images/MSE_comparison.png",
@@ -232,7 +233,6 @@
     "Files/Articles/byrnes1991.md",
     "Files/Articles/ortega1989.md",
     "Articles/ortega1989.md",
-    "ortega1989.md",
-    "Reference.md"
+    "ortega1989.md"
   ]
 }
