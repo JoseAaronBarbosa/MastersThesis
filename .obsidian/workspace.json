@@ -13,15 +13,42 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
+                "file": "Thesis state.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "A new Feedback Method for Dynamic Control of Manipulators"
+              "title": "Thesis state"
+            }
+          },
+          {
+            "id": "8276ec7cbba7e322",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Thesis state.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Thesis state"
+            }
+          },
+          {
+            "id": "e3b667e1b05472ec",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Files/Articles/quan2026.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "quan2026"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -83,7 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 233.5
+    "width": 239.60000610351562
   },
   "right": {
     "id": "b86f0c7927a5b492",
@@ -188,35 +215,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "b44cb1678fa53b94",
+  "active": "e3b667e1b05472ec",
   "lastOpenFiles": [
-    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
-    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md.crdownload",
-    "Planning.md",
-    "Research/Passivity/Takegaki_Arimoto_1981_notes.md.crdownload",
-    "Files/Articles/takegaki1981.pdf",
-    "Files/Articles/takegaki1981.pdf.crdownload",
-    "Research/Structured learning/L-Learning.md",
-    "Presentations/thesis_progress_presentation.pdf",
-    "Files/Articles/quan2026.pdf",
-    "Files/Articles/quan2026.pdf.crdownload",
-    "Presentations/thesis_progress_presentation.toc",
-    "Presentations/thesis_progress_presentation.tex",
-    "Presentations/thesis_progress_presentation.synctex.gz",
-    "Presentations/Images/Trajectories.png",
-    "Presentations/Images/pbc_unmatched.png",
-    "Presentations/Images/MSE_comparison.png",
-    "Presentations/Images/learning_residual.png",
+    "Thesis state.md",
+    "Sections/Learning/Online learning law.md",
+    "Sections/Learning/Gaining span on the parametrization.md",
     "Sections/STA/Composite Lyapunov function.md",
     "Sections/PBC/Passivity Based Controller Formulation.md",
-    "Sections/Learning/Online learning law.md",
-    "Scripts/pbc_unmatched.png",
-    "Scripts/Images/learning_residual.png",
-    "Scripts/Images/Trajectories.png",
-    "Scripts/Images/MSE_comparison.png",
-    "Scripts/Images/pbc_unmatched.png",
-    "Research/Structured learning/Spectral normalization.md",
+    "Sections/PBC/Nominal dynamics.md",
+    "Research/Useful results/Young's Inequality.md",
+    "Research/Useful results/Comparison lemma.md",
+    "Research/Structured learning/Spectral normalization of NN.md",
+    "Research/Structured learning/L-Learning.md",
     "Research/Structured learning/Integral momentum method for acceleration free regression.md",
+    "Files/Articles/yu2001.pdf",
     "Research/Structured learning/Deep Lagrangian Networks.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
     "Research/Sliding modes/Sliding surface on an E-L system.md",
@@ -224,15 +236,30 @@
     "Research/Passivity/Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
     "Research/Passivity/Introduction to passivity based control.md",
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
-    "Sections/Learning/Gaining span on the parametrization.md",
-    "Research/Useful results/Young's Inequality.md",
-    "Research/Useful results/Comparison lemma.md",
-    "Sections/PBC/Nominal dynamics.md",
+    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
+    "Files/Articles/yu2004.pdf",
+    "Files/Articles/yu2013.pdf",
+    "Files/Articles/yu2012.pdf",
+    "Files/Articles/takegaki1981.pdf",
+    "Files/Articles/resendiz2008.pdf",
+    "Files/Articles/quan2026.pdf",
+    "Files/Articles/pantoja2025.pdf",
+    "Files/Articles/guanya2019.pdf",
+    "Files/Articles/gonzalez2012.pdf",
+    "Planning.md",
+    "Presentations/Images/Trajectories.png",
+    "Presentations/Images/pbc_unmatched.png",
+    "Presentations/Images/MSE_comparison.png",
+    "Presentations/Images/learning_residual.png",
+    "Scripts/pbc_unmatched.png",
+    "Scripts/Images/learning_residual.png",
+    "Scripts/Images/Trajectories.png",
+    "Scripts/Images/MSE_comparison.png",
+    "Scripts/Images/pbc_unmatched.png",
     "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
     "References/References.md",
     "Files/Articles/byrnes1991.md",
     "Files/Articles/ortega1989.md",
-    "Articles/ortega1989.md",
-    "ortega1989.md"
+    "Articles/ortega1989.md"
   ]
 }
