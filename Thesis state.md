@@ -1,11 +1,11 @@
 
-*Last updated: 2026-10-20*
+*Last updated: 2026-10-29*
 
 ---
 
 ## 1. Identity
 
-- **Title:** Passivity-Based Control with Physics-Informed Structured Learning for Robot Manipulators
+- **Title:** Passivity-Based Control with Structured Learning and a Robust Action for Euler-Lagrange Systems
 - **Program:** Master's thesis, Departamento de Control Automático, CINVESTAV-IPN
 - **Student:** Jose Aaron Barbosa Mercado
 - **Advisors:**
@@ -17,29 +17,36 @@
 
 ## 2. Core idea
 
-The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nominal passivity-based controller (PBC)** is designed on the nominal model. A **physics-informed structured learning module** (DeLaN-style) learns the residual dynamics while preserving Lagrangian structure and passivity properties. A **robust action** (super-twisting, or a simpler SMC) handles whatever residual the learning leaves behind.
+The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nominal passivity-based controller (PBC)** is designed on the nominal model. A **structured learning module** (DeLaN-style) learns the residual dynamics while preserving Lagrangian structure and passivity properties. A **robust action** (a first-order SMC) handles whatever residual the learning leaves behind.
 
 ### Architecture
 
-| Layer | Role | Structure |
-|---|---|---|
-| Nominal PBC | Stabilize the nominal E–L model | Passivity / energy shaping; IDA-PBC under evaluation |
-| Structured learning | Learn residual Δ_el + Δ_dis | M̂ = L̂L̂ᵀ + εI (positive definite by construction); Ĉ from Christoffel symbols of M̂; gravity as ∇Û; friction D̂ |
-| Robust action | Reject the remaining bounded residual | STA (original plan) or simple SMC (current leaning) |
+| Layer               | Role                                           | Structure                                                                                                                                                                                      |
+| ------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nominal PBC         | Stabilize the nominal E–L model                | Passivity / energy shaping                                                                                                                                                                     |
+| Structured learning | Learn residual ${}\Delta_{e-l}+\Delta_{dis}{}$ | ${}\hat{M}=\hat{L}\hat{L}^T+\epsilon I{}$ (positive definite by construction); ${}\hat{C}{}$ from Christoffel symbols of ${}\hat{M}{}$; gravity as ${}\nabla\hat{U}{}$; friction ${}\hat{D}{}$ |
+| Robust action       | Reject the remaining bounded residual          | First-Order SMC (with boundary layer)                                                                                                                                                          |
 
 ---
 
-## 3. Target theorem
+## 3. Contribution and target theorem
 
-> Structured learning + PBC drives the tracking error to a ball whose radius shrinks as learning improves (UUB). The robust action then drives the error to zero. The passivity properties of the nominal controller are maintained with the learning.
+**Contribution: passivity-budget theorem.**
+
+> The learning residual is treated as a block with a **passivity shortage** ${}\nu{}$, certified from the network's Lipschitz constant via spectral normalization. The nominal PBC provides a **passivity surplus** ${}\lambda_{min}(K_{D}){}$, and the boundary-layer SMC adds **effective damping** inside the layer. If ${}\lambda_{min}(K_{D})+(SMC\;damping)>\lambda_{max}(sym\;N){}$,on the operating region (${}N{}$ the matrix shortage), the closed loop PBC + learning + SMC stays (semi-)passive and the tracking error is UUB, with a radius set by the residual offset ${}\epsilon_{0}{}$ and the e-mod ball. The budget also gives a rule for lowering the gains as learning improves.
+
+**Why this is the contribution:** a plain Lyapunov proof, or a standard MLP with the same adaptation law, would also give stability. The contribution is the type of guarantee: a certified passivity budget across the three blocks, not stability alone.
+
+**Role of DeLaN:** it is the offline prior, not what ensures stability. A good ${}W_{0}{}$ shrinks ${}v{}$ and ${}||W^*-W_{0}||{}$ (e-mod leaks toward ${}W_{0}{}$), so the e-mod ball shrinks too. Claim smaller ${}\epsilon{}$ only for residuals that are mostly E–L plus dissipative friction.
+
+**Caveat:** ${}\epsilon{}$ contains the true ${}\tilde{C}\dot{q}_{r}{}$ term (quadratic in velocity), so the sector bound and the theorem are regional, not global.
 
 **Supporting pieces:**
-- Composite Lyapunov function (PBC energy + learning-error terms + sliding/STA terms)
-- Solutions in the Filippov sense for the discontinuous robust action
-- Lipschitz certification of the network via spectral normalization (idea taken from Neural Lander, Shi et al. 2019), used to bound the learned residual, not only to stabilize training
-- Explicit relation between the residual bound and the UUB radius
-- Passive mappings for each component of the control
-- Stability is guaranteed via the passivity properties
+- Per-block lemmas: plant OSP (${}-\tilde{\Delta}\to s{}$, index ${}\lambda_{min}(K_{D}){}$); adaptation lossless, semi-passive with e-mod leaking toward W₀; boundary-layer SMC as a static sector block (${}s^T\mbox{sat}\left( s/\phi \right)\geq 0{}$)
+- Interconnection theorem, then composite storage (${}\frac{1}{2}s^TM(q)s+\frac{1}{2}\mbox{tr}(\tilde{W}^TK^{-1}\tilde{W}){}$) for the UUB / boundary-layer radius
+- Lipschitz certification of the network via spectral normalization (Neural Lander, Shi et al. 2019) for the network half of ${}\nu{}$; plant half of ${}\nu{}$ from physics
+- Filippov solutions only needed for the ideal (discontinuous) SMC; the boundary-layer version is continuous
+- Future work (STA): the same Lipschitz certificate gives ${}||\dot{\epsilon}||\leq L||\dot{x}||{}$, the derivative bound variable-gain STA needs (Gonzalez et al. 2012)
 
 **Open in the proof:** 
 
@@ -54,13 +61,15 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 	- E-modification of the learning law with convergence radius
 	- Semi-passivity of learning law with e-modification
 - **Sketched:**
-	- Composite Lyapunov function for PBC + learning + STA
-	- Time-derivative up to the coupling of ${}M^{-1}(q){}$ in ${}\dot{s}{}$
+	- Passivity budget, step 1: problem statement (Sections/Passivity budget/1. Problem statement.md)
+	- Passivity budget, step 2: passivity shortage ν (Sections/Passivity budget/2. Passivity shortage.md)
+	- Time-derivative up to the coupling of ${}M^{-1}(q){}$ in ${}\dot{s}{}$ (avoided with a static SMC on s)
 - **Missing**:
-	- Passivity properties of the whole system
-	- Finite time and asymptotic convergence of the full controller
+	- Passivity budget, step 3: effective damping of the SMC inside the boundary layer
+	- Passivity budget, step 4: the budget inequality
+	- Passivity budget, step 5: theorem statement and proof (passivity of the whole system)
 	- Convergence radius of the feasible full controller (boundary-layer of the SMC)
-	- Full controller improves tracking performance
+	- Full controller improves tracking performance (simulation)
 
 ---
 
@@ -86,30 +95,47 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
   - Nominal dynamics
   - Passivity Based Controller Formulation
   - Composite Lyapunov function
+  - Passivity budget
+	  - Control definition
+	  - Error dynamics
+	  - Adaptation law derived from Lyapunov analysis
+	  - E-modification leaking towards ${}W_{0}{}$
 - MATLAB 2-DOF planar sandbox:
-  - Symbolic M(q), C(q,q̇), g(q), derived by hand (transformation matrices, COM Jacobians, Christoffel construction)
+  - Symbolic ${}M(q){}$, ${}C(q,\dot{q}){}$, ${}g(q){}$, derived by hand (transformation matrices, COM Jacobians, Christoffel construction)
   - Converted to `matlabFunction` handles; simulated with `ode45`
   - Friction model: viscous + Coulomb + Stribeck, tanh-smoothed (raw `sign()` slowed the solver)
   - Nominal and mismatched-parameter cases, used to validate the baseline UUB residual radius
   - Online learning of the output-layer
   - Tracking performance under heavy mismatched-parameters with full learning and nominal PBC controller
 - Progress presentation prepared for both advisors
+- Scope settled with advisors (2026-10-28)
 
 ### In progress / remaining
 
 - [ ] DeLaN offline training on the sandbox residual
-- [ ] Robust action: implement the chosen variant (SMC or STA)
+- [ ] Spectral normalization in the DeLaN training, to certify the network half of ${}\nu{}$
+- [ ] ${}W_{0}{}$ from offline training (optionally ridge refit on the frozen features)
+- [ ] Robust action: implement first-order SMC with boundary layer
 - [ ] Full closed-loop simulation: PBC + learning + robust action
+- [ ] DeLaN vs MLP comparison on held-out trajectories
 
 ---
 
-## 5. Open decisions
+## 5. Decisions
+
+### Settled
+
+| Decision           | Choice                                                                                      | Notes                          |
+| ------------------ | ------------------------------------------------------------------------------------------- | ------------------------------ |
+| Nominal controller | Classic PBC with nominal M, C, g, F and damping injection                                   | IDA-PBC dropped                |
+| Learning           | DeLaN trained offline; online output-layer adaptation with e-mod leaking toward ${}W_{0}{}$ |                                |
+| Robust action      | First-order SMC with boundary layer                                                         | STA deferred to future work    |
+| Contribution       | Passivity-budget theorem                                                                    | Port-passivity framing dropped |
+
+### Open
 
 | Decision | Options | Current leaning | Notes |
 |---|---|---|---|
-| Keep the robust action? | Keep / defer / drop | Keep a simpler version | An advisor recommends dropping or deferring it because it gets complicated |
-| Robust action type | Simple SMC vs STA | Simple SMC as a compromise | STA gives continuous control and finite-time convergence but a harder proof |
-| Nominal controller formulation | Classic PBC vs IDA-PBC (port-Hamiltonian, Ortega et al. 2002) | Evaluating | Plan: design on nominal model, learn residual, SMC for remaining bounded error |
 | Extension | None / human-robot interaction / under-actuated systems via IDA-PBC | Undecided | Scope risk for a master's thesis |
 | Experimental validation | Simulation only / partial experiment / full experiment | Papers + simulation likely enough | See platform below |
 
@@ -144,14 +170,16 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 
 ## 8. Next steps (short horizon)
 
-1. Add Integral momentum method DeLuca(2003).
-2. Present the state of the thesis with bibliography research to advisors
-3. Search tools to implement offline DeLaN training on the sandbox
-4. Understand the passivity argument of the nominal PBC + learning controller (why do we need passivity and structured learning of the network)
-5. Add simple SMC to the controller and derive stability proof
+1. Finish the passivity budget derivation (steps 3 to 5): SMC effective damping, budget inequality, theorem and proof
+2. Add spectral normalization to the offline DeLaN training and compute the certified ${}\nu{}$
+3. Implement the first-order SMC with boundary layer in the sandbox
+4. Full closed-loop simulation and DeLaN vs MLP comparison
+5. Decide the experimental validation scope
 
 ---
 
 ## 9. Decision log
 
 - 2026-10-20: Thesis work organized into a Project; one chat per focused task.
+- 2026-10-28: Scope confirmed with advisors: classic PBC (M, C, g, F) with damping injection, DeLaN structured learning, first-order SMC with boundary layer.
+- 2026-10-28: Contribution settled as the passivity-budget theorem. Port-passivity framing dropped: with online adaptation a standard MLP has the same semi-passivity, so DeLaN's advantage is the offline prior (${}W_{0}{}$, smaller ${}v{}$), made lasting by e-mod leaking toward ${}W_{0}{}$.
