@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c1717be160af741c",
+        "id": "989611de1917a2af",
         "type": "tabs",
         "children": [
           {
-            "id": "b2e0cb0db5ceafa1",
+            "id": "6cb1c6123a1af0ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,34 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "Thesis state"
-            }
-          },
-          {
-            "id": "48b25d72ce60c043",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sections/Learning/Online learning law.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Online learning law"
-            }
-          },
-          {
-            "id": "7c6455f2c7c0b83d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sections/Contribution/Passivity budget.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Passivity budget"
             }
           }
         ]
@@ -216,27 +188,30 @@
       "bases:Create new base": false
     }
   },
-  "active": "e1042c03e44795a3",
+  "active": "6cb1c6123a1af0ec",
   "lastOpenFiles": [
-    "Sections/Contribution",
-    "Sections/Untitled.md",
-    "Thesis state.md",
+    "Split at the sliding surface - foundations and precedents.md",
+    "Sections/Contribution/Passivity budget theorem.md",
+    "Scripts/delan_jax/README.md",
     "Sections/Contribution/Passivity budget.md",
-    "Research/Useful results/Young's Inequality.md",
+    "Sections/Contribution/Passivity budget (1).md",
+    "Thesis state (1).md",
+    "Scripts/delan_jax/robustness_results.mat",
+    "Scripts/delan_jax/Compare_controllers (1).m",
+    "Scripts/delan_jax/Robustness_scenarios.m",
+    "Scripts/delan_jax/compare_results.mat",
+    "Scripts/delan_jax/Compare_controllers.m",
+    "Scripts/run1/delan_check_points.mat",
+    "Scripts/run1/delan_basis.mat",
+    "Scripts/delan_jax/__pycache__/evaluate.cpython-311.pyc",
+    "Scripts/run1/eval_test.json",
     "Sections/Learning/Online learning law.md",
+    "Scripts/run1/params.pkl",
+    "Thesis state.md",
+    "Sections/Untitled.md",
+    "Research/Useful results/Young's Inequality.md",
     "Research/Structured learning/Deep Lagrangian Networks.md",
     "Research/Sliding modes/Sliding surface on an E-L system.md",
-    "Thesis state (1).md",
-    "Files/Articles/pantoja2025.pdf",
-    "Files/Articles/ortega2002.pdf",
-    "Files/Articles/yu2001.pdf",
-    "Files/Articles/resendiz2008.pdf",
-    "Files/Articles/pogromsky1997.pdf",
-    "Files/Articles/lutter2019.pdf",
-    "Files/Articles/guanya2019.pdf",
-    "Files/Articles/gonzalez2012.pdf",
-    "Files/Articles/eslami2025.pdf",
-    "Files/Articles/quan2026.pdf",
     "Research/Structured learning/Spectral normalization of NN.md",
     "Sections/Learning/Gaining span on the parametrization.md",
     "Sections/STA/Composite Lyapunov function.md",
@@ -251,7 +226,6 @@
     "Research/Passivity/Introduction to passivity based control.md",
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
     "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
-    "Planning.md",
     "Presentations/Images/Trajectories.png",
     "Presentations/Images/pbc_unmatched.png",
     "Presentations/Images/MSE_comparison.png",
@@ -260,8 +234,6 @@
     "Scripts/Images/learning_residual.png",
     "Scripts/Images/Trajectories.png",
     "Scripts/Images/MSE_comparison.png",
-    "Scripts/Images/pbc_unmatched.png",
-    "Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
-    "References/References.md"
+    "Scripts/Images/pbc_unmatched.png"
   ]
 }

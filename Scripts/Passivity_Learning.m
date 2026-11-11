@@ -11,7 +11,7 @@ M11 = m1*lc1^2 + I1 + m2*(l1^2 + lc2^2 + 2*l1*lc2*cos(q2)) + I2;
 M12 = m2*(lc2^2 + l1*lc2*cos(q2)) + I2;
 M = [M11, M12; M12, m2*lc2^2+I2];
 
-C = [-h_term*dq2, h_term*dq1; -h_term*dq1-h_term*dq2, 0];
+C = [-h_term*dq2, -h_term*(dq1+dq2); h_term*dq1, 0];   % Christoffel C (was transposed before 2026-11-05)
 
 P = m1*g_acc*lc1*sin(q1) + m2*g_acc*(l1*sin(q1)+lc2*sin(q1+q2));
 gq = [diff(P,q1); diff(P,q2)];

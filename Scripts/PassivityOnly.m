@@ -21,8 +21,8 @@ M = [M11, M12;
      M21, M22];
 
 % --- Coriolis/centrifugal matrix C(q,qdot), Christoffel construction ---
-C = [ -h*dq2,        h*dq1;
-      -h*dq1 - h*dq2,  0  ];
+C = [ -h*dq2,  -h*(dq1 + dq2);
+       h*dq1,   0             ];   % (was transposed before 2026-11-05)
 
 % --- Gravity vector g(q) ---
 P = m1*g_acc*lc1*sin(q1) + m2*g_acc*(l1*sin(q1) + lc2*sin(q1+q2));

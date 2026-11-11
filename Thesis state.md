@@ -1,5 +1,5 @@
 
-*Last updated: 2026-10-29*
+*Last updated: 2026-11-10*
 
 ---
 
@@ -9,22 +9,22 @@
 - **Program:** Master's thesis, Departamento de Control Automático, CINVESTAV-IPN
 - **Student:** Jose Aaron Barbosa Mercado
 - **Advisors:**
-  - Dr. Wen Yu Liu (neural networks)
-  - Dr. Fernando Castaños Luna (passivity / sliding modes)
+  - Dr. Wen Yu Liu
+  - Dr. Fernando Castaños Luna
 - **Companion documents in this Project:** thesis proposal, progress presentation (Beamer), notes files, articles of interest
 
 ---
 
 ## 2. Core idea
 
-The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nominal passivity-based controller (PBC)** is designed on the nominal model. A **structured learning module** (DeLaN-style) learns the residual dynamics while preserving Lagrangian structure and passivity properties. A **robust action** (a first-order SMC) handles whatever residual the learning leaves behind.
+The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nominal passivity-based controller (PBC)** is designed on the nominal model. A **structured learning module** (DeLaN-style) learns the residual dynamics while preserving Lagrangian structure and passivity properties. A **robust action** (a first-order boundary layer SMC) handles whatever residual the learning leaves behind.
 
 ### Architecture
 
 | Layer               | Role                                           | Structure                                                                                                                                                                                      |
 | ------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Nominal PBC         | Stabilize the nominal E–L model                | Passivity / energy shaping                                                                                                                                                                     |
-| Structured learning | Learn residual ${}\Delta_{e-l}+\Delta_{dis}{}$ | ${}\hat{M}=\hat{L}\hat{L}^T+\epsilon I{}$ (positive definite by construction); ${}\hat{C}{}$ from Christoffel symbols of ${}\hat{M}{}$; gravity as ${}\nabla\hat{U}{}$; friction ${}\hat{D}{}$ |
+| Structured learning | Learn residual ${}\Delta_{e-l}+\Delta_{dis}{}$ | ${}\hat{M}=\hat{L}\hat{L}^T+\epsilon I{}$ (positive definite by construction); ${}\hat{C}{}$ from Christoffel symbols of ${}\hat{M}{}$; gravity as ${}\nabla\hat{U}{}$; friction ${}\hat{F}{}$ |
 | Robust action       | Reject the remaining bounded residual          | First-Order SMC (with boundary layer)                                                                                                                                                          |
 
 ---
@@ -33,18 +33,27 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 
 **Contribution: passivity-budget theorem.**
 
-> The learning residual is treated as a block with a **passivity shortage** ${}\nu{}$, certified from the network's Lipschitz constant via spectral normalization. The nominal PBC provides a **passivity surplus** ${}\lambda_{min}(K_{D}){}$, and the boundary-layer SMC adds **effective damping** inside the layer. If ${}\lambda_{min}(K_{D})+(SMC\;damping)>\lambda_{max}(sym\;N){}$,on the operating region (${}N{}$ the matrix shortage), the closed loop PBC + learning + SMC stays (semi-)passive and the tracking error is UUB, with a radius set by the residual offset ${}\epsilon_{0}{}$ and the e-mod ball. The budget also gives a rule for lowering the gains as learning improves.
+> The learning residual is treated as a block with a **passivity shortage**. On the operating region $\Omega_{c}$ it satisfies the **sector bound** $||\epsilon||\leq\epsilon_{0}+\nu||s||$, obtained by splitting the residual at the sliding surface $s=0$. The nominal PBC provides a **passivity surplus** $\lambda_{min}(K_{D})$ that pays the shortage ($\lambda_{min}(K_{D})>\nu$), and the SMC gain only has to pay the offset ($k_{min}>\epsilon_{0}+\frac{\kappa}{2}||W^*-W_{0}||_{F}^2$). Inside the boundary layer the SMC adds **effective damping** $k/\phi$. The closed loop PBC + learning + SMC stays (semi-)passive and the tracking error is UUB, with a radius set by $\epsilon_{0}$ and the e-mod ball.
+>
+> **How it lowers the gains:** a lumped bound $||\epsilon||\leq\bar{\epsilon}$ forces $k_{min}>\bar{\epsilon}\geq\epsilon_{0}+\nu\bar{s}$. The split moves the $\nu||s||$ part onto $K_{D}$, so at the same $K_{D}$ the switching gain drops by up to $\nu\bar{s}$: less control effort and less chattering.
 
-**Why this is the contribution:** a plain Lyapunov proof, or a standard MLP with the same adaptation law, would also give stability. The contribution is the type of guarantee: a certified passivity budget across the three blocks, not stability alone.
+**Why this is the contribution:** a plain Lyapunov proof, or a standard MLP with the same adaptation law, would also give stability. The contribution is the type of guarantee: a passivity budget across the three blocks (who pays for which part of the residual), not stability alone.
 
-**Role of DeLaN:** it is the offline prior, not what ensures stability. A good ${}W_{0}{}$ shrinks ${}v{}$ and ${}||W^*-W_{0}||{}$ (e-mod leaks toward ${}W_{0}{}$), so the e-mod ball shrinks too. Claim smaller ${}\epsilon{}$ only for residuals that are mostly E–L plus dissipative friction.
+**Role of DeLaN:** it is the offline prior, not what ensures stability. Better generators shrink the true $\nu$ and $\epsilon_{0}$ (through the inertia error after learning, $E_{M}=\tilde{M}-\hat{M}^*$), and a good $W_{0}$ shrinks $||W^*-W_{0}||$ (e-mod leaks toward $W_{0}$), so the e-mod ball shrinks too. Claim smaller ${}\epsilon{}$ only for residuals that are mostly E–L plus dissipative friction.
 
 **Caveat:** ${}\epsilon{}$ contains the true ${}\tilde{C}\dot{q}_{r}{}$ term (quadratic in velocity), so the sector bound and the theorem are regional, not global.
+
+**Sector bound: stated, not certified (decided 2026-11-10).**
+- In the theorem the sector bound is an assumption, justified by a short existence lemma: the residual is $C^1$ on a compact set, so splitting it at $s=0$ in $(e,s,t)$ coordinates gives a finite $\epsilon_{0}$ and a finite Lipschitz constant $\nu$ in $s$. Detail in Sections/Passivity budget/2b and Contribution/Passivity budget.md.
+- Where it comes from: the split at $s=0$ and the structured form of $\nu$ are our formulation. Precedents for state-dependent uncertainty bounds: Corless & Leitmann (1981), Spong (1992), Qu & Dawson (1996).
+- The certificate (spectral normalization plus parameter bounds) is only a remark: the certified $\nu$ (triangle inequality) does not shrink with learning, is no better than pure robust control, and gives DeLaN no certified edge over an SN-MLP.
+- The certificate is shown **in simulation only**: in the sandbox $M$ is known, so the true $\nu$ and $\epsilon_{0}$ can be computed and the split gains compared against the lumped gains.
 
 **Supporting pieces:**
 - Per-block lemmas: plant OSP (${}-\tilde{\Delta}\to s{}$, index ${}\lambda_{min}(K_{D}){}$); adaptation lossless, semi-passive with e-mod leaking toward W₀; boundary-layer SMC as a static sector block (${}s^T\mbox{sat}\left( s/\phi \right)\geq 0{}$)
 - Interconnection theorem, then composite storage (${}\frac{1}{2}s^TM(q)s+\frac{1}{2}\mbox{tr}(\tilde{W}^TK^{-1}\tilde{W}){}$) for the UUB / boundary-layer radius
-- Lipschitz certification of the network via spectral normalization (Neural Lander, Shi et al. 2019) for the network half of ${}\nu{}$; plant half of ${}\nu{}$ from physics
+- Sector bound $||\epsilon||\leq\epsilon_{0}+\nu||s||$ on $\Omega_{c}$ via the existence lemma (split at $s=0$); $K_{D}$ pays $\nu$, SMC gain pays $\epsilon_{0}$
+- Spectral normalization (Neural Lander, Shi et al. 2019): remark only, not used in the theorem
 - Filippov solutions only needed for the ideal (discontinuous) SMC; the boundary-layer version is continuous
 - Future work (STA): the same Lipschitz certificate gives ${}||\dot{\epsilon}||\leq L||\dot{x}||{}$, the derivative bound variable-gain STA needs (Gonzalez et al. 2012)
 
@@ -63,10 +72,9 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 - **Sketched:**
 	- Passivity budget, step 1: problem statement (Sections/Passivity budget/1. Problem statement.md)
 	- Passivity budget, step 2: passivity shortage ν (Sections/Passivity budget/2. Passivity shortage.md)
+	- Sector bound with the split at $s=0$ and structured $\nu$ (Sections/Passivity budget/2b, Contribution/Passivity budget.md)
 	- Time-derivative up to the coupling of ${}M^{-1}(q){}$ in ${}\dot{s}{}$ (avoided with a static SMC on s)
 - **Missing**:
-	- Passivity budget, step 3: effective damping of the SMC inside the boundary layer
-	- Passivity budget, step 4: the budget inequality
 	- Passivity budget, step 5: theorem statement and proof (passivity of the whole system)
 	- Convergence radius of the feasible full controller (boundary-layer of the SMC)
 	- Full controller improves tracking performance (simulation)
@@ -112,11 +120,11 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 
 ### In progress / remaining
 
-- [ ] DeLaN offline training on the sandbox residual
-- [ ] Spectral normalization in the DeLaN training, to certify the network half of ${}\nu{}$
-- [ ] ${}W_{0}{}$ from offline training (optionally ridge refit on the frozen features)
-- [ ] Robust action: implement first-order SMC with boundary layer
-- [ ] Full closed-loop simulation: PBC + learning + robust action
+- [x] DeLaN offline training on the sandbox residual
+- [ ] Sector-bound simulation: compute the true $\nu$ and $\epsilon_{0}$ in the sandbox ($M$ known); compare split vs lumped gains at the same $K_{D}$ (lumped $k>\epsilon_{0}+\nu\bar{s}$, gap $\nu\bar{s}$), reporting required $k$, control effort and chattering, for no learning, MLP and DeLaN. The sandbox is in a vertical plane, so the gravity bound enters $\epsilon_{0}$ only
+- [x] ${}W_{0}{}$ from offline training (optionally ridge refit on the frozen features)
+- [x] Robust action: implement first-order SMC with boundary layer
+- [x] Full closed-loop simulation: PBC + learning + robust action
 - [ ] DeLaN vs MLP comparison on held-out trajectories
 
 ---
@@ -131,6 +139,7 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 | Learning           | DeLaN trained offline; online output-layer adaptation with e-mod leaking toward ${}W_{0}{}$ |                                |
 | Robust action      | First-order SMC with boundary layer                                                         | STA deferred to future work    |
 | Contribution       | Passivity-budget theorem                                                                    | Port-passivity framing dropped |
+| Sector bound       | Stated as an assumption with an existence lemma; certificate shown in simulation only       | SN certificate is a remark     |
 
 ### Open
 
@@ -143,8 +152,8 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 
 ## 6. Experimental platform
 
-- 2-DOF robot with 4 links in a closed chain; motors on the outer links
-- Moves in a horizontal plane, so gravity has little or no effect
+- 2-DOF robot with 5 links in a closed chain; motors on the outer links
+- Moves in a horizontal plane, so gravity has no effect
 - Sensors: encoder + tachometer
 - Input: motor voltage, so actuator dynamics sit between the controller and the torque. The motors are connected to a gear reduction system then to the bars
 - The lab has already run model-based controllers on it
@@ -171,7 +180,7 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 ## 8. Next steps (short horizon)
 
 1. Finish the passivity budget derivation (steps 3 to 5): SMC effective damping, budget inequality, theorem and proof
-2. Add spectral normalization to the offline DeLaN training and compute the certified ${}\nu{}$
+2. Sector-bound simulation: true $\nu$, $\epsilon_{0}$ and split vs lumped gains (no learning, MLP, DeLaN)
 3. Implement the first-order SMC with boundary layer in the sandbox
 4. Full closed-loop simulation and DeLaN vs MLP comparison
 5. Decide the experimental validation scope
@@ -183,3 +192,4 @@ The manipulator is an Euler–Lagrange system with uncertain dynamics. A **nomin
 - 2026-10-20: Thesis work organized into a Project; one chat per focused task.
 - 2026-10-28: Scope confirmed with advisors: classic PBC (M, C, g, F) with damping injection, DeLaN structured learning, first-order SMC with boundary layer.
 - 2026-10-28: Contribution settled as the passivity-budget theorem. Port-passivity framing dropped: with online adaptation a standard MLP has the same semi-passivity, so DeLaN's advantage is the offline prior (${}W_{0}{}$, smaller ${}v{}$), made lasting by e-mod leaking toward ${}W_{0}{}$.
+- 2026-11-10: Sector bound $||\epsilon||\leq\epsilon_{0}+\nu||s||$ is stated as an assumption (existence lemma, split at $s=0$) with its sources; $K_{D}$ pays $\nu$ and the SMC gain pays $\epsilon_{0}$, which lowers the switching gain by up to $\nu\bar{s}$ against a lumped bound.
