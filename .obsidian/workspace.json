@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis state.md",
+                "file": "Research/Structured learning/Integral momentum method for acceleration free regression.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thesis state"
+              "title": "Integral momentum method for acceleration free regression"
+            }
+          },
+          {
+            "id": "347d353e94c1b084",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sections/Contribution/Passivity budget.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Passivity budget"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -188,12 +203,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "6cb1c6123a1af0ec",
+  "active": "347d353e94c1b084",
   "lastOpenFiles": [
-    "Split at the sliding surface - foundations and precedents.md",
-    "Sections/Contribution/Passivity budget theorem.md",
-    "Scripts/delan_jax/README.md",
+    "Research/Structured learning/Integral momentum method for acceleration free regression.md",
     "Sections/Contribution/Passivity budget.md",
+    "Files/Articles/patre2008.pdf",
+    "Files/Articles/patre2008.pdf.crdownload",
+    "Sections/Contribution/Passivity budget theorem.md",
+    "Thesis state.md",
+    "Split at the sliding surface - foundations and precedents.md",
+    "Scripts/delan_jax/README.md",
     "Sections/Contribution/Passivity budget (1).md",
     "Thesis state (1).md",
     "Scripts/delan_jax/robustness_results.mat",
@@ -204,10 +223,7 @@
     "Scripts/run1/delan_check_points.mat",
     "Scripts/run1/delan_basis.mat",
     "Scripts/delan_jax/__pycache__/evaluate.cpython-311.pyc",
-    "Scripts/run1/eval_test.json",
     "Sections/Learning/Online learning law.md",
-    "Scripts/run1/params.pkl",
-    "Thesis state.md",
     "Sections/Untitled.md",
     "Research/Useful results/Young's Inequality.md",
     "Research/Structured learning/Deep Lagrangian Networks.md",
@@ -219,13 +235,11 @@
     "Sections/PBC/Nominal dynamics.md",
     "Research/Useful results/Comparison lemma.md",
     "Research/Structured learning/L-Learning.md",
-    "Research/Structured learning/Integral momentum method for acceleration free regression.md",
     "Research/Sliding modes/Solutions in the Filippov sense.md",
     "Research/Passivity/Port Hamiltonian systems and IDA-PBC.md",
     "Research/Passivity/Passivity, Feedback equivalence and the global stabilization of minimum phase non-linear systems.md",
     "Research/Passivity/Introduction to passivity based control.md",
     "Research/Passivity/Adaptive motion control of rigid robots (A tutorial).md",
-    "Research/Passivity/A new Feedback Method for Dynamic Control of Manipulators.md",
     "Presentations/Images/Trajectories.png",
     "Presentations/Images/pbc_unmatched.png",
     "Presentations/Images/MSE_comparison.png",

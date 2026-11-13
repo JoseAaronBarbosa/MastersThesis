@@ -3,5 +3,6 @@
   "cssTheme": "Primary",
   "enabledCssSnippets": [
     "math-color"
-  ]
+  ],
+  "showRibbon": true
 }
